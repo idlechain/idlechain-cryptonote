@@ -5,7 +5,7 @@
 - Portions Copyright (c) 2014-2022 The Monero Project.
 - Portions Copyright (c) 2012-2013 The Cryptonote developers.
 
-## How to install
+## How to run
 ### Linux
 ```
 apt-get install build-essential cmake pkg-config libboost-all-dev libzmq3-dev libssl-dev libpgm-dev libnorm-dev libunbound-dev libsodium-dev libunwind8-dev liblzma-dev libexpat1-dev libgtest-dev ccache doxygen graphviz qttools5-dev-tools libhidapi-dev libusb-1.0-0-dev libprotobuf-dev protobuf-compiler libudev-dev
