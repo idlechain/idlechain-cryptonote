@@ -19,6 +19,33 @@ chmod 755 *
 
 Download, unzip and run idlechaind.exe: https://idlecalypse.cc/latest-win64.zip
 
+## How to create a wallet
+### Linux
+Run and follow the steps:
+```
+./idlechain-wallet-cli
+```
+### Windows
+Run idlechain-wallet-cli.exe and follow the steps.
+
+## How to mining
+Once your idlechaind.exe daemon is synced, run in daemon windows:
+```
+start_mining YOUR_WALLET NUMBER_THREADS
+```
+Example (wallet XM33utX...mK8oX5J, 4 threads):
+```
+start_mining XM33utXBM4tiR6cYxMpASFXNAdzLy2kTbXxBTxsJLwvyMhyuxE6cZeqJ37U5vGYn9cFJDLE75ocYV2mnGehZFSqk1zmK8oX5J 4
+```
+Stop mining:
+```
+stop_mining
+```
+Show more commands:
+```
+help
+```
+
 ## How to compile
 https://github.com/monero-project/monero?tab=readme-ov-file#compiling-monero-from-source
 
