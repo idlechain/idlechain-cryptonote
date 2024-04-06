@@ -50,5 +50,5 @@ help
 https://github.com/monero-project/monero?tab=readme-ov-file#compiling-monero-from-source
 
 ## Links
-Website: https://idlecalypse.cc/
-Download: https://github.com/idlechain-project/idlechain/releases
+- Website: https://idlecalypse.cc/
+- Download: https://github.com/idlechain-project/idlechain/releases
