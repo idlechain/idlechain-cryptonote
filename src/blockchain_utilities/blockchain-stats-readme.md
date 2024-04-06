@@ -1,19 +1,19 @@
-# Mangonote Blockchain Stats
+# IDLEChain Project Blockchain Stats
 
-Mangonote Blockchain Stats utlity exports daily statistics for the mangonote blockchain from creation through current state.
+IDLEChain Project Blockchain Stats utlity exports daily statistics for the idlechain blockchain from creation through current state.
 
 ## Usage:
 
-See also the utility's help option. `mangonote-blockchain-stats --help`
+See also the utility's help option. `idlechain-blockchain-stats --help`
 
 From the command line run:
 
-`$ mangonote-blockchain-stats`
+`$ idlechain-blockchain-stats`
 
 This loads the existing blockchain and prints the results to the terminal. Default printed data includes Blocks per Day, Total Blocks, Transactions per Day, Total Transactions, Bytes per Day and Total Bytes. The format of the output is in tab delimited csv which is printed to the console. Redirecting or piping the output of the command allows for saving the output to a csv file or feeding your own script accordingly, i.e.:
 
-- `mangonote-blockchain-stats > stats-$(date +'%Y-%m-%d').csv`
-- `mangonote-blockchain-stats | save-to-database.sh`
+- `idlechain-blockchain-stats > stats-$(date +'%Y-%m-%d').csv`
+- `idlechain-blockchain-stats | save-to-database.sh`
 
 ### Options
 `--data-dir arg` 

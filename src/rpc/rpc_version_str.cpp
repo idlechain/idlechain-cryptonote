@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 // 
 // All rights reserved.
@@ -37,7 +37,7 @@ namespace cryptonote
 namespace rpc
 {
 
-// Expected format of Mangonote software version string:
+// Expected format of IDLEChain Project software version string:
 // 1) Four numbers, one to two digits each, separated by periods
 // 2) Optionally, one of the following suffixes:
 //      a) -release

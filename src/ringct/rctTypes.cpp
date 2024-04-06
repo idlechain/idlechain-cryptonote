@@ -1,4 +1,4 @@
-// Copyright (c) 2016, Mangonote Research Labs
+// Copyright (c) 2016, IDLEChain Project Research Labs
 //
 // Author: Shen Noether <shen.noether@gmx.com>
 // 
@@ -35,8 +35,8 @@
 using namespace crypto;
 using namespace std;
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "ringct"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "ringct"
 
 namespace rct {
 

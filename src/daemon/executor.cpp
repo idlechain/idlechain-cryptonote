@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -36,12 +36,12 @@
 
 #include <string>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace daemonize
 {
-  std::string const t_executor::NAME = "Mangonote Daemon";
+  std::string const t_executor::NAME = "IDLEChain Project Daemon";
 
   void t_executor::init_options(
       boost::program_options::options_description & configurable_options
@@ -59,7 +59,7 @@ namespace daemonize
       boost::program_options::variables_map const & vm
     )
   {
-    LOG_PRINT_L0("Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ") Daemonised");
+    LOG_PRINT_L0("IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ") Daemonised");
     return t_daemon{vm, public_rpc_port};
   }
 

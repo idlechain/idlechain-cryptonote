@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_DEVICE_TREZOR_BASE_H
-#define MANGONOTE_DEVICE_TREZOR_BASE_H
+#ifndef IDLECHAIN_DEVICE_TREZOR_BASE_H
+#define IDLECHAIN_DEVICE_TREZOR_BASE_H
 
 
 #include <cstddef>
@@ -246,7 +246,7 @@ namespace trezor {
 
     bool reset();
 
-    // Default derivation path for Mangonote
+    // Default derivation path for IDLEChain Project
     static const uint32_t DEFAULT_BIP44_PATH[2];
 
     std::shared_ptr<Transport> get_transport(){
@@ -343,4 +343,4 @@ namespace trezor {
 
 }
 }
-#endif //MANGONOTE_DEVICE_TREZOR_BASE_H
+#endif //IDLECHAIN_DEVICE_TREZOR_BASE_H

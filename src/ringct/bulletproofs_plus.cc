@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 // 
 // All rights reserved.
@@ -32,7 +32,7 @@
 // Preprint: https://eprint.iacr.org/2020/735, version 17 Jun 2020
 //
 // NOTE ON NOTATION:
-//  In the signature constructions used in Mangonote, commitments to zero are treated as
+//  In the signature constructions used in IDLEChain Project, commitments to zero are treated as
 //      public keys against the curve group generator `G`. This means that amount
 //      commitments must use another generator `H` for values in order to show balance.
 //  The result is that the roles of `g` and `h` in the preprint are effectively swapped
@@ -52,8 +52,8 @@ extern "C"
 #include "multiexp.h"
 #include "bulletproofs_plus.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "bulletproof_plus"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "bulletproof_plus"
 
 #define STRAUS_SIZE_LIMIT 232
 #define PIPPENGER_SIZE_LIMIT 0

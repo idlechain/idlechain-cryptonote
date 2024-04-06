@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 // 
 // All rights reserved.
@@ -45,8 +45,8 @@
 #include "common/util.h"
 #include "common/threadpool.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "wallet.wallet2.rpc_payments"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "wallet.wallet2.rpc_payments"
 
 #define RPC_PAYMENT_POLL_PERIOD 10 /* seconds*/
 

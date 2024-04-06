@@ -1,16 +1,16 @@
 [Unit]
-Description=Mangonote Full Node
+Description=IDLEChain Project Full Node
 After=network.target
 
 [Service]
-User=mangonote
-Group=mangonote
+User=idlechain
+Group=idlechain
 WorkingDirectory=~
-StateDirectory=mangonote
-LogsDirectory=mangonote
+StateDirectory=idlechain
+LogsDirectory=idlechain
 
 Type=simple
-ExecStart=/usr/bin/mangonoted --config-file /etc/mangonoted.conf --non-interactive
+ExecStart=/usr/bin/idlechaind --config-file /etc/idlechaind.conf --non-interactive
 StandardOutput=null
 StandardError=null
 

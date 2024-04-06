@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -37,8 +37,8 @@
 
 #include "lmdb/db_lmdb.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "blockchain.db"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "blockchain.db"
 
 using epee::string_tools::pod_to_hex;
 

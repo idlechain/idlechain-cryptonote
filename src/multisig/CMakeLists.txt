@@ -36,12 +36,12 @@ set(multisig_sources
 
 set(multisig_headers)
 
-mangonote_find_all_headers(multisig_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(multisig_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(multisig
+idlechain_private_headers(multisig
   ${multisig_private_headers})
 
-mangonote_add_library(multisig
+idlechain_add_library(multisig
   ${multisig_sources}
   ${multisig_headers}
   ${multisig_private_headers})

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 //
 // All rights reserved.
@@ -42,8 +42,8 @@
 
 using namespace epee;
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "checkpoints"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "checkpoints"
 
 namespace cryptonote
 {
@@ -230,23 +230,23 @@ namespace cryptonote
   {
     std::vector<std::string> records;
 
-    // All four MangonotePulse domains have DNSSEC on and valid
-    static const std::vector<std::string> dns_urls = {/* "checkpoints.mangonote.org"
-						     , "checkpoints.mangonote.org"
-						     , "checkpoints.mangonote.org"
-						     , "checkpoints.mangonote.co"*/
+    // All four IDLEChain ProjectPulse domains have DNSSEC on and valid
+    static const std::vector<std::string> dns_urls = {/* "checkpoints.idlecalypse.cc"
+						     , "checkpoints.idlecalypse.cc"
+						     , "checkpoints.idlecalypse.cc"
+						     , "checkpoints.idlechain.co"*/
     };
 
-    static const std::vector<std::string> testnet_dns_urls = {/* "testpoints.mangonote.org"
-							     , "testpoints.mangonote.org"
-							     , "testpoints.mangonote.org"
-							     , "testpoints.mangonote.co"*/
+    static const std::vector<std::string> testnet_dns_urls = {/* "testpoints.idlecalypse.cc"
+							     , "testpoints.idlecalypse.cc"
+							     , "testpoints.idlecalypse.cc"
+							     , "testpoints.idlechain.co"*/
     };
 
-    static const std::vector<std::string> stagenet_dns_urls = {/* "stagenetpoints.mangonote.org"
-                   , "stagenetpoints.mangonote.org"
-                   , "stagenetpoints.mangonote.org"
-                   , "stagenetpoints.mangonote.co"*/
+    static const std::vector<std::string> stagenet_dns_urls = {/* "stagenetpoints.idlecalypse.cc"
+                   , "stagenetpoints.idlecalypse.cc"
+                   , "stagenetpoints.idlecalypse.cc"
+                   , "stagenetpoints.idlechain.co"*/
     };
 
     if (!tools::dns_utils::load_txt_records_from_dns(records, nettype == TESTNET ? testnet_dns_urls : nettype == STAGENET ? stagenet_dns_urls : dns_urls))

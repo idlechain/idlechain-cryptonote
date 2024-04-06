@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -45,8 +45,8 @@
 #include "cryptonote_protocol/cryptonote_protocol_handler.h"
 #include "rpc_payment.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon.rpc"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon.rpc"
 
 // yes, epee doesn't properly use its full namespace when calling its
 // functions from macros.  *sigh*

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // All rights reserved.
@@ -45,7 +45,7 @@ namespace lmdb
             {
                 const int rc = mdb_cursor_count(cur, &out);
                 if (rc)
-                    MANGONOTE_THROW(lmdb::error(rc), "mdb_cursor_count");
+                    IDLECHAIN_THROW(lmdb::error(rc), "mdb_cursor_count");
             }
             return out;
         }
@@ -60,14 +60,14 @@ namespace lmdb
             {
                 if (rc == MDB_NOTFOUND)
                     return {};
-                MANGONOTE_THROW(lmdb::error(rc), "mdb_cursor_get");
+                IDLECHAIN_THROW(lmdb::error(rc), "mdb_cursor_get");
             }
 
             if (key && key != key_bytes.mv_size)
-                MANGONOTE_THROW(lmdb::error(MDB_BAD_VALSIZE), "mdb_cursor_get key");
+                IDLECHAIN_THROW(lmdb::error(MDB_BAD_VALSIZE), "mdb_cursor_get key");
 
             if (value && (value_bytes.mv_size % value != 0 || value_bytes.mv_size == 0))
-                MANGONOTE_THROW(lmdb::error(MDB_BAD_VALSIZE), "mdb_cursor_get value");
+                IDLECHAIN_THROW(lmdb::error(MDB_BAD_VALSIZE), "mdb_cursor_get value");
 
             return {lmdb::to_byte_span(key_bytes), lmdb::to_byte_span(value_bytes)};
         }

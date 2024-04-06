@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 //
 // All rights reserved.
@@ -36,7 +36,7 @@
 
 using namespace std;
 
-namespace Mangonote {
+namespace IDLEChain Project {
 namespace Utils {
 
 bool isAddressLocal(const std::string &address)

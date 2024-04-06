@@ -1,4 +1,4 @@
-# Mangonote Blockchain Utilities
+# IDLEChain Project Blockchain Utilities
 
 Copyright (c) 2014-2022, The Monero Project
 
@@ -12,16 +12,16 @@ See also each utility's "--help" option.
 
 ### Export an existing blockchain database
 
-`$ mangonote-blockchain-export`
+`$ idlechain-blockchain-export`
 
-This loads the existing blockchain and exports it to `$MANGONOTE_DATA_DIR/export/blockchain.raw`
+This loads the existing blockchain and exports it to `$IDLECHAIN_DATA_DIR/export/blockchain.raw`
 
 ### Import the exported file
 
-`$ mangonote-blockchain-import`
+`$ idlechain-blockchain-import`
 
-This imports blocks from `$MANGONOTE_DATA_DIR/export/blockchain.raw` (exported using the
-`mangonote-blockchain-export` tool as described above) into the current database.
+This imports blocks from `$IDLECHAIN_DATA_DIR/export/blockchain.raw` (exported using the
+`idlechain-blockchain-export` tool as described above) into the current database.
 
 Defaults: `--batch on`, `--batch size 20000`, `--verify on`
 
@@ -30,14 +30,14 @@ Batch size refers to number of blocks and can be adjusted for performance based 
 Verification should only be turned off if importing from a trusted blockchain.
 
 If you encounter an error like "resizing not supported in batch mode", you can just re-run
-the `mangonote-blockchain-import` command again, and it will restart from where it left off.
+the `idlechain-blockchain-import` command again, and it will restart from where it left off.
 
 ```bash
 ## use default settings to import blockchain.raw into database
-$ mangonote-blockchain-import
+$ idlechain-blockchain-import
 
 ## fast import with large batch size, database mode "fastest", verification off
-$ mangonote-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
+$ idlechain-blockchain-import --batch-size 20000 --database lmdb#fastest --verify off
 
 ```
 
@@ -80,9 +80,9 @@ LMDB flags (more than one may be specified):
 ## Examples:
 
 ```bash
-$ mangonote-blockchain-import --database lmdb#fastest
+$ idlechain-blockchain-import --database lmdb#fastest
 
-$ mangonote-blockchain-import --database lmdb#nosync
+$ idlechain-blockchain-import --database lmdb#nosync
 
-$ mangonote-blockchain-import --database lmdb#nosync,nometasync
+$ idlechain-blockchain-import --database lmdb#nosync,nometasync
 ```

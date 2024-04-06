@@ -33,8 +33,8 @@
 #include <boost/mpl/vector.hpp>
 #include <boost/mpl/contains_fwd.hpp>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "serialization"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "serialization"
 
 namespace epee
 {

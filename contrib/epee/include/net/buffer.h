@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // 
@@ -34,8 +34,8 @@
 #include "misc_log_ex.h"
 #include "span.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.buffer"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.buffer"
 
 //#define NET_BUFFER_LOG(x) MDEBUG(x)
 #define NET_BUFFER_LOG(x) ((void)0)

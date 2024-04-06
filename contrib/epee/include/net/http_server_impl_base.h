@@ -37,8 +37,8 @@
 #include "http_protocol_handler.h"
 #include "net/http_server_handlers_map2.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.http"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.http"
 
 namespace epee
 {

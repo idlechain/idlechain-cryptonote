@@ -1,7 +1,7 @@
 #assumes you have gnu sed, osx sed might need slight syntax changeo
 #c.f. https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files
 
-#written by shen-noether mangonote research labs
+#written by shen-noether idlechain research labs
 
 import os #for copying and sed etc.
 import glob #for copy files
@@ -15,7 +15,7 @@ print("maybe someone smart can replace the sed with perl..")
 a = ""
 
 license = textwrap.dedent("""\
-    // Copyright (c) 2024, The Mangonote Project
+    // Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
     // 
     // All rights reserved.
@@ -169,36 +169,36 @@ if a == "m":
     print(fe_comments)
     fe = glob.glob("fe*.c")
     for g in fe:
-        os.system("cp "+g+" "+g.replace("fe", "fe.mangonote."))
-    qhasmToC("fe_pow22523.c", "pow22523.h", "fe.mangonote._pow22523.c")
-    qhasmToC("fe_invert.c", "pow225521.h", "fe.mangonote._invert.c")
-    os.system("rm fe.mangonote._isnonzero.c") #since it's modified, it's in xmrSpecificOld
-    os.system("cat fe.mangonote.*.c | grep -v '^#include' > fe.mangonote.c")
+        os.system("cp "+g+" "+g.replace("fe", "fe.idlechain."))
+    qhasmToC("fe_pow22523.c", "pow22523.h", "fe.idlechain._pow22523.c")
+    qhasmToC("fe_invert.c", "pow225521.h", "fe.idlechain._invert.c")
+    os.system("rm fe.idlechain._isnonzero.c") #since it's modified, it's in xmrSpecificOld
+    os.system("cat fe.idlechain.*.c | grep -v '^#include' > fe.idlechain.c")
 
     #sc things
     print("\nmaking sc.c")
     print(sc_comments)
     #so you don't get multiple "loads"
-    os.system("tail -n +24 sc_reduce.c > sc.mangonote._reduce.c") #also good on linux
-    os.system("tail -n +24 sc_muladd.c > sc.mangonote._muladd.c")
-    os.system("tail -n +31 sc_sub.xmr.c > sc.mangonote._sub.xmr.c") #careful with the tails if you change these files!
-    os.system("cat sc.mangonote.*.c | grep -v '^#include' > sc.mangonote.c")
+    os.system("tail -n +24 sc_reduce.c > sc.idlechain._reduce.c") #also good on linux
+    os.system("tail -n +24 sc_muladd.c > sc.idlechain._muladd.c")
+    os.system("tail -n +31 sc_sub.xmr.c > sc.idlechain._sub.xmr.c") #careful with the tails if you change these files!
+    os.system("cat sc.idlechain.*.c | grep -v '^#include' > sc.idlechain.c")
 
     #ge stuff
     print("making ge.c")
     ge = glob.glob("ge*.c")
     for g in ge:
-        os.system("cp "+g+" "+g.replace("ge", "ge.mangonote."))
+        os.system("cp "+g+" "+g.replace("ge", "ge.idlechain."))
     print(ge_comments)
     #need to substitute the below lines for their .h files in the appropriate places
-    qhasmToC("ge_add.c", "ge_add.h", "ge.mangonote._add.c")
-    qhasmToC("ge_madd.c", "ge_madd.h", "ge.mangonote._madd.c")
-    qhasmToC("ge_sub.c", "ge_sub.h", "ge.mangonote._sub.c")
-    qhasmToC("ge_msub.c", "ge_msub.h", "ge.mangonote._msub.c")
-    qhasmToC("ge_p2_dbl.c", "ge_p2_dbl.h", "ge.mangonote._p2_dbl.c")
-    qhasmToC("ge_frombytes.c", "d.h", "ge.mangonote._frombytes.c")
-    qhasmToC("ge.mangonote._frombytes.c", "sqrtm1.h", "ge.mangonote._frombytes.c")
-    qhasmToC("ge_p3_to_cached.c", "d2.h", "ge.mangonote._p3_to_cached.c")
+    qhasmToC("ge_add.c", "ge_add.h", "ge.idlechain._add.c")
+    qhasmToC("ge_madd.c", "ge_madd.h", "ge.idlechain._madd.c")
+    qhasmToC("ge_sub.c", "ge_sub.h", "ge.idlechain._sub.c")
+    qhasmToC("ge_msub.c", "ge_msub.h", "ge.idlechain._msub.c")
+    qhasmToC("ge_p2_dbl.c", "ge_p2_dbl.h", "ge.idlechain._p2_dbl.c")
+    qhasmToC("ge_frombytes.c", "d.h", "ge.idlechain._frombytes.c")
+    qhasmToC("ge.idlechain._frombytes.c", "sqrtm1.h", "ge.idlechain._frombytes.c")
+    qhasmToC("ge_p3_to_cached.c", "d2.h", "ge.idlechain._p3_to_cached.c")
 
 
 
@@ -206,11 +206,11 @@ if a == "m":
     #note, base2.h is a large file!
     #also in ge_scalarmult_base ge_precomp base needs base.h included
 
-    qhasmToC("ge_double_scalarmult.c", "base2.h", "ge.mangonote._double_scalarmult.c")
-    qhasmToC("ge_scalarmult_base.c", "base.h", "ge.mangonote._scalarmult_base.c")
-    #qhasmToC("ge.mangonote._scalarmult_base.c", "base.h", "ge.mangonote._scalarmult_base.c")
-    os.system("sed -i 's/ cmov/ ge_precomp_cmov/g' ge.mangonote._scalarmult_base.c")
-    os.system("cat ge.mangonote.*.c | grep -v '^#include' > ge.mangonote.c")
+    qhasmToC("ge_double_scalarmult.c", "base2.h", "ge.idlechain._double_scalarmult.c")
+    qhasmToC("ge_scalarmult_base.c", "base.h", "ge.idlechain._scalarmult_base.c")
+    #qhasmToC("ge.idlechain._scalarmult_base.c", "base.h", "ge.idlechain._scalarmult_base.c")
+    os.system("sed -i 's/ cmov/ ge_precomp_cmov/g' ge.idlechain._scalarmult_base.c")
+    os.system("cat ge.idlechain.*.c | grep -v '^#include' > ge.idlechain.c")
 
 
     print("making crypto-ops.c")
@@ -218,30 +218,30 @@ if a == "m":
     #sqrtm1 things
 
     #comments
-    with open("fe.mangonote.comments", "w") as text_file:
+    with open("fe.idlechain.comments", "w") as text_file:
             text_file.write(fe_comments)
-    with open("ge.mangonote.comments", "w") as text_file:
+    with open("ge.idlechain.comments", "w") as text_file:
             text_file.write(ge_comments)
-    with open("sc.mangonote.comments", "w") as text_file:
+    with open("sc.idlechain.comments", "w") as text_file:
             text_file.write(sc_comments)
-    with open("xmr.mangonote.comments", "w") as text_file:
+    with open("xmr.idlechain.comments", "w") as text_file:
             text_file.write(xmr_comments)
-    with open("xmr.mangonote.predeclarations", "w") as text_file:
+    with open("xmr.idlechain.predeclarations", "w") as text_file:
             text_file.write(predeclarations)
 
 
     #license
-    with open("mangonote.license", "w") as text_file:
+    with open("idlechain.license", "w") as text_file:
             text_file.write(license)
 
     #crypto-ops.c includes
-    with open("crypto-ops.mangonote.includes", "w") as text_file:
+    with open("crypto-ops.idlechain.includes", "w") as text_file:
         text_file.write(crypto_ops_includes)
 
     #note you may have duplicates of load_3, load_4 and possibly some other functions ... 
-    os.system("cat mangonote.license crypto-ops.mangonote.includes xmr.mangonote.predeclarations fe.mangonote.comments fe.mangonote.c sc.mangonote.comments sc.mangonote.c ge.mangonote.comments ge.mangonote.c xmr.mangonote.comments xmrSpecificOld.c > crypto-ops.c")
+    os.system("cat idlechain.license crypto-ops.idlechain.includes xmr.idlechain.predeclarations fe.idlechain.comments fe.idlechain.c sc.idlechain.comments sc.idlechain.c ge.idlechain.comments ge.idlechain.c xmr.idlechain.comments xmrSpecificOld.c > crypto-ops.c")
 
-    #mangonote specific header files
+    #idlechain specific header files
     #print("making crypto-ops-tmp.h")
     #os.system("cat fe.h ge.h sc.h |grep -v crypto_sign_ed25519 |grep -v fe.h > crypto-ops-tmp.h")
     #we'll just use the old header crypto-ops.h
@@ -253,10 +253,10 @@ if a == "m":
     os.system("sed -i 's/crypto_uint64/uint64_t/g' crypto-ops.c")
 
     #cleaning up 
-    os.system("rm *mangonote*")
+    os.system("rm *idlechain*")
 
-    #mangonote specific c files
+    #idlechain specific c files
 if a == "c":
     #turn the directory back into ref10
-    os.system("rm *mangonote*")
+    os.system("rm *idlechain*")
     os.system("rm crypto-ops.c")

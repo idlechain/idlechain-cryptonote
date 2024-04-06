@@ -1,6 +1,6 @@
 /**
 @file
-@author rfree (current maintainer in mangonote.cc project)
+@author rfree (current maintainer in idlechain.cc project)
 @brief interface for throttling of connection (count and rate-limit speed etc) 
 @details <PRE>
 
@@ -26,7 +26,7 @@ Throttling work by:
 
 */
 
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.

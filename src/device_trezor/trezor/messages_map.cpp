@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -32,7 +32,7 @@
 #include "messages/messages.pb.h"
 #include "messages/messages-common.pb.h"
 #include "messages/messages-management.pb.h"
-#include "messages/messages-mangonote.pb.h"
+#include "messages/messages-idlechain.pb.h"
 
 #ifdef WITH_TREZOR_DEBUGGING
 #include "messages/messages-debug.pb.h"
@@ -53,7 +53,7 @@ namespace trezor
 #ifdef WITH_TREZOR_DEBUGGING
       "hw.trezor.messages.debug.",
 #endif
-      "hw.trezor.messages.mangonote."
+      "hw.trezor.messages.idlechain."
   };
 
   google::protobuf::Message * MessageMapper::get_message(int wire_number) {
@@ -74,7 +74,7 @@ namespace trezor
     // Each package instantiation so lookup works
     hw::trezor::messages::common::Success::default_instance();
     hw::trezor::messages::management::Cancel::default_instance();
-    hw::trezor::messages::mangonote::MangonoteGetAddress::default_instance();
+    hw::trezor::messages::idlechain::IDLEChain ProjectGetAddress::default_instance();
 
 #ifdef WITH_TREZOR_DEBUGGING
     hw::trezor::messages::debug::DebugLinkDecision::default_instance();
@@ -102,13 +102,13 @@ namespace trezor
 //    // CODEGEN way, fast
 //    switch(wire_number){
 //      case 501:
-//        return new messages::mangonote::MangonoteTransactionSignRequest();
+//        return new messages::idlechain::IDLEChain ProjectTransactionSignRequest();
 //      default:
 //        throw std::runtime_error("not implemented");
 //    }
 //
 //    // CODEGEN message -> number: specification
-//    //    messages::MessageType get_message_wire_number(const messages::mangonote::MangonoteTransactionSignRequest * msg) { return 501; }
+//    //    messages::MessageType get_message_wire_number(const messages::idlechain::IDLEChain ProjectTransactionSignRequest * msg) { return 501; }
 //    //    messages::MessageType get_message_wire_number(const messages::management::ping * msg)
 //
   }

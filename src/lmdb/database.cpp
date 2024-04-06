@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // All rights reserved.
 //
@@ -78,20 +78,20 @@ namespace lmdb
 
     expect<environment> open_environment(const char* path, MDB_dbi max_dbs) noexcept
     {
-        MANGONOTE_PRECOND(path != nullptr);
+        IDLECHAIN_PRECOND(path != nullptr);
 
         MDB_env* obj = nullptr;
-        MANGONOTE_LMDB_CHECK(mdb_env_create(std::addressof(obj)));
+        IDLECHAIN_LMDB_CHECK(mdb_env_create(std::addressof(obj)));
         environment out{obj};
 
-        MANGONOTE_LMDB_CHECK(mdb_env_set_maxdbs(out.get(), max_dbs));
-        MANGONOTE_LMDB_CHECK(mdb_env_open(out.get(), path, 0, open_flags));
+        IDLECHAIN_LMDB_CHECK(mdb_env_set_maxdbs(out.get(), max_dbs));
+        IDLECHAIN_LMDB_CHECK(mdb_env_open(out.get(), path, 0, open_flags));
         return {std::move(out)};
     }
 
     expect<write_txn> database::do_create_txn(unsigned int flags) noexcept
     {
-        MANGONOTE_PRECOND(handle() != nullptr);
+        IDLECHAIN_PRECOND(handle() != nullptr);
 
         for (unsigned attempts = 0; attempts < 3; ++attempts)
         {
@@ -106,7 +106,7 @@ namespace lmdb
             release_context(ctx);
             if (err != MDB_MAP_RESIZED)
                 return {lmdb::error(err)};
-            MANGONOTE_CHECK(this->resize());
+            IDLECHAIN_CHECK(this->resize());
         }
         return {lmdb::error(MDB_MAP_RESIZED)};
     }
@@ -118,7 +118,7 @@ namespace lmdb
         {
             const int err = mdb_env_set_userctx(handle(), std::addressof(ctx));
             if (err)
-                MANGONOTE_THROW(lmdb::error(err), "Failed to set user context");
+                IDLECHAIN_THROW(lmdb::error(err), "Failed to set user context");
         }
     }
 
@@ -129,13 +129,13 @@ namespace lmdb
 
     expect<void> database::resize() noexcept
     {
-        MANGONOTE_PRECOND(handle() != nullptr);
+        IDLECHAIN_PRECOND(handle() != nullptr);
 
         while (ctx.lock.test_and_set());
         while (ctx.active);
 
         MDB_envinfo info{};
-        MANGONOTE_LMDB_CHECK(mdb_env_info(handle(), &info));
+        IDLECHAIN_LMDB_CHECK(mdb_env_info(handle(), &info));
 
         const mdb_size_t resize = std::min(info.me_mapsize, max_resize);
         const int err = mdb_env_set_mapsize(handle(), info.me_mapsize + resize);
@@ -166,7 +166,7 @@ namespace lmdb
 
     expect<suspended_txn> database::reset_txn(read_txn txn) noexcept
     {
-        MANGONOTE_PRECOND(txn != nullptr);
+        IDLECHAIN_PRECOND(txn != nullptr);
         mdb_txn_reset(txn.get());
         release_context(ctx);
         return suspended_txn{txn.release()};
@@ -179,8 +179,8 @@ namespace lmdb
 
     expect<void> database::commit(write_txn txn) noexcept
     {
-        MANGONOTE_PRECOND(txn != nullptr);
-        MANGONOTE_LMDB_CHECK(mdb_txn_commit(txn.get()));
+        IDLECHAIN_PRECOND(txn != nullptr);
+        IDLECHAIN_LMDB_CHECK(mdb_txn_commit(txn.get()));
         txn.release();
         release_context(ctx);
         return success();

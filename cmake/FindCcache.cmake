@@ -1,4 +1,4 @@
-# Copyright (c) 2024, The Mangonote Project
+# Copyright (c) 2024, The IDLEChain Project
 # Portions copyright (c) 2014-2022, The Monero Project
 #
 # All rights reserved.
@@ -32,7 +32,7 @@
 #
 # Usage of this module as follows:
 #
-#     project(mangonote)
+#     project(idlechain)
 #     include(FindCcache) # Include AFTER the project() macro to be able to reach the CMAKE_CXX_COMPILER variable
 #
 # Properties modified by this module:

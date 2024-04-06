@@ -9,8 +9,8 @@
 #include "misc_log_ex.h"
 #include "net/parse.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon.rpc.bootstrap_daemon"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon.rpc.bootstrap_daemon"
 
 namespace cryptonote
 {

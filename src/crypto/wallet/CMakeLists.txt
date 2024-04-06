@@ -30,19 +30,19 @@
 #
 # Possibly user defined values.
 #
-set(MANGONOTE_WALLET_CRYPTO_LIBRARY "auto" CACHE STRING "Select a wallet crypto library")
+set(IDLECHAIN_WALLET_CRYPTO_LIBRARY "auto" CACHE STRING "Select a wallet crypto library")
 
 #
 # If the user specified "auto", detect best library defaulting to internal.
 #
-if (${MANGONOTE_WALLET_CRYPTO_LIBRARY} STREQUAL "auto")
+if (${IDLECHAIN_WALLET_CRYPTO_LIBRARY} STREQUAL "auto")
    monero_crypto_autodetect(AVAILABLE BEST)
   if (DEFINED BEST)
     message("Wallet crypto is using ${BEST} backend")
-    set(MANGONOTE_WALLET_CRYPTO_LIBRARY ${BEST})
+    set(IDLECHAIN_WALLET_CRYPTO_LIBRARY ${BEST})
   else ()
     message("Defaulting to internal crypto library for wallet")
-    set(MANGONOTE_WALLET_CRYPTO_LIBRARY "cn")
+    set(IDLECHAIN_WALLET_CRYPTO_LIBRARY "cn")
   endif ()
 endif ()
 
@@ -50,12 +50,12 @@ endif ()
 # Configure library target "wallet-crypto" - clients will use this as a
 # library dependency which in turn will depend on the crypto library selected.
 #
-if (${MANGONOTE_WALLET_CRYPTO_LIBRARY} STREQUAL "cn")
-  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/empty.h.in ${MANGONOTE_GENERATED_HEADERS_DIR}/crypto/wallet/ops.h)
+if (${IDLECHAIN_WALLET_CRYPTO_LIBRARY} STREQUAL "cn")
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/empty.h.in ${IDLECHAIN_GENERATED_HEADERS_DIR}/crypto/wallet/ops.h)
   add_library(wallet-crypto ALIAS cncrypto)
 else ()
-  monero_crypto_generate_header(${MANGONOTE_WALLET_CRYPTO_LIBRARY} "${MANGONOTE_GENERATED_HEADERS_DIR}/crypto/wallet/ops.h")
-  monero_crypto_get_target(${MANGONOTE_WALLET_CRYPTO_LIBRARY} CRYPTO_TARGET)
+  monero_crypto_generate_header(${IDLECHAIN_WALLET_CRYPTO_LIBRARY} "${IDLECHAIN_GENERATED_HEADERS_DIR}/crypto/wallet/ops.h")
+  monero_crypto_get_target(${IDLECHAIN_WALLET_CRYPTO_LIBRARY} CRYPTO_TARGET)
   add_library(wallet-crypto $<TARGET_OBJECTS:${CRYPTO_TARGET}>)
   target_link_libraries(wallet-crypto cncrypto)
 endif ()

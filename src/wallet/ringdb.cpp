@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // 
@@ -39,8 +39,8 @@
 #include "ringdb.h"
 #include "cryptonote_config.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "wallet.ringdb"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "wallet.ringdb"
 
 #define V1TAG ((uint64_t)798237759845202)
 

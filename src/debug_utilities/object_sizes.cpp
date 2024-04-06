@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -45,8 +45,8 @@
 #include "wallet/api/unsigned_transaction.h"
 #include "wallet/api/pending_transaction.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "debugtools.objectsizes"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "debugtools.objectsizes"
 
 class size_logger
 {
@@ -111,12 +111,12 @@ int main(int argc, char* argv[])
   SL(tools::wallet2::unsigned_tx_set);
   SL(tools::wallet2::signed_tx_set);
 
-  SL(Mangonote::WalletImpl);
-  SL(Mangonote::AddressBookRow);
-  SL(Mangonote::TransactionInfoImpl);
-  SL(Mangonote::TransactionHistoryImpl);
-  SL(Mangonote::PendingTransactionImpl);
-  SL(Mangonote::UnsignedTransactionImpl);
+  SL(IDLEChain Project::WalletImpl);
+  SL(IDLEChain Project::AddressBookRow);
+  SL(IDLEChain Project::TransactionInfoImpl);
+  SL(IDLEChain Project::TransactionHistoryImpl);
+  SL(IDLEChain Project::PendingTransactionImpl);
+  SL(IDLEChain Project::UnsignedTransactionImpl);
 
   return 0;
 }

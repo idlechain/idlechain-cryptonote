@@ -32,8 +32,8 @@
 #include "misc_log_ex.h"
 #include "keyvalue_serialization_overloads.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "serialization"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "serialization"
 
 namespace epee
 {

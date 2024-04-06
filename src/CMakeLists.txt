@@ -34,13 +34,13 @@ if (WIN32 OR STATIC)
   add_definitions(-DMINIUPNP_STATICLIB)
 endif ()
 
-function (mangonote_private_headers group)
+function (idlechain_private_headers group)
   source_group("${group}\\Private"
     FILES
       ${ARGN})
 endfunction ()
 
-function (mangonote_install_headers subdir)
+function (idlechain_install_headers subdir)
   install(
     FILES       ${ARGN}
     DESTINATION "include/${subdir}"
@@ -58,7 +58,7 @@ function (enable_stack_trace target)
   endif()
 endfunction()
 
-function (mangonote_add_executable name)
+function (idlechain_add_executable name)
   source_group("${name}"
     FILES
       ${ARGN})
@@ -76,12 +76,12 @@ function (mangonote_add_executable name)
       RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
   enable_stack_trace("${name}")
   
-  mangonote_set_target_no_relink("${name}")
-  mangonote_set_target_strip    ("${name}")
+  idlechain_set_target_no_relink("${name}")
+  idlechain_set_target_strip    ("${name}")
 endfunction ()
 
 include(Version)
-mangonote_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
+idlechain_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
 
 add_subdirectory(common)
 add_subdirectory(crypto)

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // All rights reserved.
@@ -120,18 +120,18 @@ namespace lmdb
                 if (!txn)
                     return txn.error();
 
-                MANGONOTE_PRECOND(*txn != nullptr);
+                IDLECHAIN_PRECOND(*txn != nullptr);
                 const auto wrote = f(*(*txn));
                 if (wrote)
                 {
-                    MANGONOTE_CHECK(commit(std::move(*txn)));
+                    IDLECHAIN_CHECK(commit(std::move(*txn)));
                     return wrote;
                 }
                 if (wrote != lmdb::error(MDB_MAP_FULL))
                     return wrote;
 
                 txn->reset();
-                MANGONOTE_CHECK(this->resize());
+                IDLECHAIN_CHECK(this->resize());
             }
             return {lmdb::error(MDB_MAP_FULL)};
         }

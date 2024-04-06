@@ -57,9 +57,9 @@ set(wallet_api_private_headers
   subaddress_account.h
   unsigned_transaction.h)
 
-mangonote_private_headers(wallet_api
+idlechain_private_headers(wallet_api
   ${wallet_api_private_headers})
-mangonote_add_library(wallet_api
+idlechain_add_library(wallet_api
   ${wallet_api_sources}
   ${wallet_api_headers}
   ${wallet_api_private_headers})

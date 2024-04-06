@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -820,98 +820,98 @@ TEST(Expect, EqualNoCopies)
 TEST(Expect, Macros) {
     EXPECT_TRUE(
         [] () -> ::common_error {
-            MANGONOTE_PRECOND(true);
+            IDLECHAIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> ::common_error {
-            MANGONOTE_PRECOND(false);
+            IDLECHAIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            MANGONOTE_PRECOND(true);
+            IDLECHAIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            MANGONOTE_PRECOND(false);
+            IDLECHAIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            MANGONOTE_PRECOND(true);
+            IDLECHAIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            MANGONOTE_PRECOND(false);
+            IDLECHAIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            MANGONOTE_PRECOND(true);
+            IDLECHAIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            MANGONOTE_PRECOND(false);
+            IDLECHAIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
 
     EXPECT_TRUE(
         [] () -> std::error_code {
-            MANGONOTE_CHECK(expect<void>{});
+            IDLECHAIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            MANGONOTE_CHECK(expect<void>{common_error::kInvalidArgument});
+            IDLECHAIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            MANGONOTE_CHECK(expect<void>{});
+            IDLECHAIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            MANGONOTE_CHECK(expect<void>{common_error::kInvalidArgument});
+            IDLECHAIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            MANGONOTE_CHECK(expect<void>{});
+            IDLECHAIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            MANGONOTE_CHECK(expect<void>{common_error::kInvalidArgument});
+            IDLECHAIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
 
-    EXPECT_NO_THROW(MANGONOTE_UNWRAP(success()));
-    EXPECT_NO_THROW(MANGONOTE_UNWRAP(expect<void>{}));
-    EXPECT_NO_THROW(MANGONOTE_UNWRAP(expect<int>{0}));
+    EXPECT_NO_THROW(IDLECHAIN_UNWRAP(success()));
+    EXPECT_NO_THROW(IDLECHAIN_UNWRAP(expect<void>{}));
+    EXPECT_NO_THROW(IDLECHAIN_UNWRAP(expect<int>{0}));
     EXPECT_THROW(
-        MANGONOTE_UNWRAP(expect<void>{common_error::kInvalidArgument}), std::system_error
+        IDLECHAIN_UNWRAP(expect<void>{common_error::kInvalidArgument}), std::system_error
     );
     EXPECT_THROW(
-        MANGONOTE_UNWRAP(expect<int>{common_error::kInvalidArgument}), std::system_error
+        IDLECHAIN_UNWRAP(expect<int>{common_error::kInvalidArgument}), std::system_error
     );
 }
 

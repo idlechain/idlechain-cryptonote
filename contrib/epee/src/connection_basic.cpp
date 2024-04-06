@@ -1,8 +1,8 @@
 /// @file
-/// @author rfree (current maintainer in mangonote.cc project)
+/// @author rfree (current maintainer in idlechain.cc project)
 /// @brief base for connection, contains e.g. the ratelimit hooks
 
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -53,8 +53,8 @@
 #define GET_IO_SERVICE(s) ((s).get_io_service())
 #endif
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.conn"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.conn"
 
 // ################################################################################################
 // local (TU local) headers

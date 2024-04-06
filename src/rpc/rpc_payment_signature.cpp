@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 // 
 // All rights reserved.
@@ -34,8 +34,8 @@
 #include "string_tools.h"
 #include "rpc_payment_signature.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon.rpc.payment"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon.rpc.payment"
 
 #define TIMESTAMP_LEEWAY (60 * 1000000) /* 60 seconds, in microseconds */
 

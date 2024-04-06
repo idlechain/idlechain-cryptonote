@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 //
 // All rights reserved.
@@ -49,8 +49,8 @@
 #include "net/dandelionpp.h"
 #include "p2p/net_node.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.p2p.tx"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.p2p.tx"
 
 namespace cryptonote
 {

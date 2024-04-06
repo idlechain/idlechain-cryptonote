@@ -33,11 +33,11 @@ set(blockchain_db_sources
 
 set(blockchain_db_headers)
 
-mangonote_find_all_headers(blockchain_db_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(blockchain_db_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(blockchain_db
+idlechain_private_headers(blockchain_db
   ${crypto_private_headers})
-mangonote_add_library(blockchain_db
+idlechain_add_library(blockchain_db
   ${blockchain_db_sources}
   ${blockchain_db_headers}
   ${blockchain_db_private_headers})

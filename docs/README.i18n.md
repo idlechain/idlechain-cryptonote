@@ -1,9 +1,9 @@
-Mangonote daemon internationalization
+IDLEChain Project daemon internationalization
 ==================================
 
-The Mangonote command line tools can be translated in various languages. If you wish to contribute and need help/support, contact the [Mangonote Localization Workgroup on Taiga](https://taiga.mangonote.org/project/erciccione-mangonote-localization/) or come chat on `#mangonote-translations` (Libera/IRC, riot/matrix, MatterMost)
+The IDLEChain Project command line tools can be translated in various languages. If you wish to contribute and need help/support, contact the [IDLEChain Project Localization Workgroup on Taiga](https://taiga.idlecalypse.cc/project/erciccione-idlechain-localization/) or come chat on `#idlechain-translations` (Libera/IRC, riot/matrix, MatterMost)
 
-In order to use the same translation workflow as the [Mangonote Core GUI](https://github.com/mangonote-project/mangonote-gui), they use Qt Linguist translation files.  However, to avoid the dependencies on Qt this normally implies, they use a custom loader to read those files at runtime.
+In order to use the same translation workflow as the [IDLEChain Project Core GUI](https://github.com/idlechain-project/idlechain-gui), they use Qt Linguist translation files.  However, to avoid the dependencies on Qt this normally implies, they use a custom loader to read those files at runtime.
 
 ### Tools for translators
 
@@ -22,13 +22,13 @@ To update ts files after changing source code:
 To add a new language, eg Spanish (ISO code es):
 
 ```bash
-cp translations/mangonote.ts translations/mangonote_es.ts
+cp translations/idlechain.ts translations/idlechain_es.ts
 ```
 
 To edit translations for Spanish:
 
 ```bash
-linguist translations/mangonote_es.ts
+linguist translations/idlechain_es.ts
 ```
 
 To build translations after modifying them:
@@ -40,7 +40,7 @@ To build translations after modifying them:
 To test a translation:
 
 ```bash
-LANG=es ./build/release/bin/mangonote-wallet-cli
+LANG=es ./build/release/bin/idlechain-wallet-cli
 ```
 
 To add new translatable strings in the source code:

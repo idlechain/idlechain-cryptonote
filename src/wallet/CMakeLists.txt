@@ -40,11 +40,11 @@ set(wallet_sources
   wallet_rpc_payments.cpp
 )
 
-mangonote_find_all_headers(wallet_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(wallet_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(wallet
+idlechain_private_headers(wallet
   ${wallet_private_headers})
-mangonote_add_library(wallet
+idlechain_add_library(wallet
   ${wallet_sources}
   ${wallet_private_headers})
 target_link_libraries(wallet
@@ -75,9 +75,9 @@ if(NOT IOS)
   set(wallet_rpc_private_headers
     wallet_rpc_server.h)
 
-  mangonote_private_headers(wallet_rpc_server
+  idlechain_private_headers(wallet_rpc_server
     ${wallet_rpc_private_headers})
-  mangonote_add_executable(wallet_rpc_server
+  idlechain_add_executable(wallet_rpc_server
     ${wallet_rpc_sources}
     ${wallet_rpc_headers}
     ${wallet_rpc_private_headers})

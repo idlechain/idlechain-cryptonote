@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 // 
 // All rights reserved.
@@ -36,8 +36,8 @@
 namespace hw {
   namespace io {
  
-    #undef MANGONOTE_DEFAULT_LOG_CATEGORY
-    #define MANGONOTE_DEFAULT_LOG_CATEGORY "device.io"
+    #undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+    #define IDLECHAIN_DEFAULT_LOG_CATEGORY "device.io"
  
     #define ASSERT_X(exp,msg)    CHECK_AND_ASSERT_THROW_MES(exp, msg); 
 

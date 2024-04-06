@@ -34,12 +34,12 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-mangonote_enable_coverage()
+idlechain_enable_coverage()
 
 find_package(Threads)
 find_package(Backtrace)
 
-mangonote_find_all_headers(EASYLOGGING_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(EASYLOGGING_HEADERS "${CMAKE_CURRENT_SOURCE_DIR}")
 
 add_library(easylogging
   easylogging++.cc

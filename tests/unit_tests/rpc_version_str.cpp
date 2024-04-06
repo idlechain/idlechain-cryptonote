@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 // 
 // All rights reserved.
@@ -35,7 +35,7 @@
 TEST(rpc, is_version_string_valid)
 {
   using namespace cryptonote::rpc;
-  ASSERT_TRUE(is_version_string_valid(MANGONOTE_VERSION));
+  ASSERT_TRUE(is_version_string_valid(IDLECHAIN_VERSION));
   ASSERT_TRUE(is_version_string_valid("0.14.1.2"));
   ASSERT_TRUE(is_version_string_valid("0.15.0.0-release"));
   ASSERT_TRUE(is_version_string_valid("0.15.0.0-fe3f6a3e6"));

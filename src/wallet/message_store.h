@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -51,8 +51,8 @@
 #include "serialization/containers.h"
 #include "message_transporter.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "wallet.mms"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "wallet.mms"
 #define AUTO_CONFIG_TOKEN_BYTES 4
 #define AUTO_CONFIG_TOKEN_PREFIX "mms"
 
@@ -145,8 +145,8 @@ namespace mms
   {
     std::string label;
     std::string transport_address;
-    bool mangonote_address_known;
-    cryptonote::account_public_address mangonote_address;
+    bool idlechain_address_known;
+    cryptonote::account_public_address idlechain_address;
     bool me;
     uint32_t index;
     std::string auto_config_token;
@@ -159,8 +159,8 @@ namespace mms
       VERSION_FIELD(0)
       FIELD(label)
       FIELD(transport_address)
-      FIELD(mangonote_address_known)
-      FIELD(mangonote_address)
+      FIELD(idlechain_address_known)
+      FIELD(idlechain_address)
       FIELD(me)
       VARINT_FIELD(index)
       FIELD(auto_config_token)
@@ -172,8 +172,8 @@ namespace mms
 
     authorized_signer()
     {
-      mangonote_address_known = false;
-      memset(&mangonote_address, 0, sizeof(cryptonote::account_public_address));
+      idlechain_address_known = false;
+      memset(&idlechain_address, 0, sizeof(cryptonote::account_public_address));
       me = false;
       index = 0;
       auto_config_public_key = crypto::null_pkey;
@@ -201,13 +201,13 @@ namespace mms
   {
     std::string label;
     std::string transport_address;
-    cryptonote::account_public_address mangonote_address;
+    cryptonote::account_public_address idlechain_address;
 
     BEGIN_SERIALIZE_OBJECT()
       VERSION_FIELD(0)
       FIELD(label)
       FIELD(transport_address)
-      FIELD(mangonote_address)
+      FIELD(idlechain_address)
     END_SERIALIZE()
   };
 
@@ -288,10 +288,10 @@ namespace mms
                     uint32_t index,
                     const boost::optional<std::string> &label,
                     const boost::optional<std::string> &transport_address,
-                    const boost::optional<cryptonote::account_public_address> mangonote_address);
+                    const boost::optional<cryptonote::account_public_address> idlechain_address);
 
     const authorized_signer &get_signer(uint32_t index) const;
-    bool get_signer_index_by_mangonote_address(const cryptonote::account_public_address &mangonote_address, uint32_t &index) const;
+    bool get_signer_index_by_idlechain_address(const cryptonote::account_public_address &idlechain_address, uint32_t &index) const;
     bool get_signer_index_by_label(const std::string label, uint32_t &index) const;
     const std::vector<authorized_signer> &get_all_signers() const { return m_signers; };
     bool signer_config_complete() const;
@@ -459,8 +459,8 @@ namespace boost
     {
       a & x.label;
       a & x.transport_address;
-      a & x.mangonote_address_known;
-      a & x.mangonote_address;
+      a & x.idlechain_address_known;
+      a & x.idlechain_address;
       a & x.me;
       a & x.index;
       if (ver < 1)
@@ -479,7 +479,7 @@ namespace boost
     {
       a & x.label;
       a & x.transport_address;
-      a & x.mangonote_address;
+      a & x.idlechain_address;
     }
 
     template <class Archive>

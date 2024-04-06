@@ -79,9 +79,9 @@ namespace
   {
     net::zmq::socket sock{zmq_socket(ctx, ZMQ_PAIR)};
     if (!sock)
-      MANGONOTE_ZMQ_THROW("failed to create socket");
+      IDLECHAIN_ZMQ_THROW("failed to create socket");
     if (zmq_bind(sock.get(), address) != 0)
-      MANGONOTE_ZMQ_THROW("socket bind failure");
+      IDLECHAIN_ZMQ_THROW("socket bind failure");
     return sock;
   }
 
@@ -280,9 +280,9 @@ namespace
         pub(std::make_shared<cryptonote::listener::zmq_pub>(ctx.get()))
     {
       if (!dummy_client)
-        MANGONOTE_ZMQ_THROW("failed to create socket");
+        IDLECHAIN_ZMQ_THROW("failed to create socket");
       if (zmq_connect(dummy_client.get(), inproc_pub) != 0)
-        MANGONOTE_ZMQ_THROW("failed to connect to dummy pub");
+        IDLECHAIN_ZMQ_THROW("failed to connect to dummy pub");
     }
 
     virtual void TearDown() override final
@@ -335,9 +335,9 @@ namespace
 
       sub.reset(zmq_socket(ctx, ZMQ_SUB));
       if (!sub)
-        MANGONOTE_ZMQ_THROW("failed to create socket");
+        IDLECHAIN_ZMQ_THROW("failed to create socket");
       if (zmq_connect(sub.get(), inproc_pub) != 0)
-        MANGONOTE_ZMQ_THROW("failed to connect to dummy pub");
+        IDLECHAIN_ZMQ_THROW("failed to connect to dummy pub");
 
       server.run();
     }
@@ -354,7 +354,7 @@ namespace
     void subscribe(const char (&topic)[N])
     {
       if (zmq_setsockopt(sub.get(), ZMQ_SUBSCRIBE, topic, N - 1) != 0)
-        MANGONOTE_ZMQ_THROW("failed to subscribe");
+        IDLECHAIN_ZMQ_THROW("failed to subscribe");
     }
   };
 }

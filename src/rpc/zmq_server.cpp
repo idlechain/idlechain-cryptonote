@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2016-2022, The Monero Project
 // 
 // All rights reserved.
@@ -38,8 +38,8 @@
 #include "byte_slice.h"
 #include "rpc/zmq_pub.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.zmq"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.zmq"
 
 namespace cryptonote
 {
@@ -59,20 +59,20 @@ namespace
     out.reset(zmq_socket(context, type));
     if (!out)
     {
-      MANGONOTE_LOG_ZMQ_ERROR("Failed to create ZMQ socket");
+      IDLECHAIN_LOG_ZMQ_ERROR("Failed to create ZMQ socket");
       return nullptr;
     }
 
     if (zmq_setsockopt(out.get(), ZMQ_MAXMSGSIZE, std::addressof(max_message_size), sizeof(max_message_size)) != 0)
     {
-      MANGONOTE_LOG_ZMQ_ERROR("Failed to set maximum incoming message size");
+      IDLECHAIN_LOG_ZMQ_ERROR("Failed to set maximum incoming message size");
       return nullptr;
     }
 
     static constexpr const int linger_value = std::chrono::milliseconds{linger_timeout}.count();
     if (zmq_setsockopt(out.get(), ZMQ_LINGER, std::addressof(linger_value), sizeof(linger_value)) != 0)
     {
-      MANGONOTE_LOG_ZMQ_ERROR("Failed to set linger timeout");
+      IDLECHAIN_LOG_ZMQ_ERROR("Failed to set linger timeout");
       return nullptr;
     }
 
@@ -80,7 +80,7 @@ namespace
     {
       if (zmq_bind(out.get(), address.c_str()) < 0)
       {
-        MANGONOTE_LOG_ZMQ_ERROR("ZMQ bind failed");
+        IDLECHAIN_LOG_ZMQ_ERROR("ZMQ bind failed");
         return nullptr;
       }
       MINFO("ZMQ now listening at " << address);
@@ -102,7 +102,7 @@ ZmqServer::ZmqServer(RpcHandler& h) :
     shared_state(nullptr)
 {
     if (!context)
-        MANGONOTE_ZMQ_THROW("Unable to create ZMQ context");
+        IDLECHAIN_ZMQ_THROW("Unable to create ZMQ context");
 }
 
 ZmqServer::~ZmqServer()
@@ -149,13 +149,13 @@ void ZmqServer::serve()
     while (1)
     {
       if (pub)
-        MANGONOTE_UNWRAP(net::zmq::retry_op(zmq_poll, sockets.data(), sockets.size(), -1));
+        IDLECHAIN_UNWRAP(net::zmq::retry_op(zmq_poll, sockets.data(), sockets.size(), -1));
 
       if (sockets[0].revents)
         state->relay_to_pub(relay.get(), pub.get());
 
       if (sockets[1].revents)
-        state->sub_request(MANGONOTE_UNWRAP(net::zmq::receive(pub.get(), ZMQ_DONTWAIT)));
+        state->sub_request(IDLECHAIN_UNWRAP(net::zmq::receive(pub.get(), ZMQ_DONTWAIT)));
 
       if (!pub || sockets[2].revents)
       {
@@ -164,7 +164,7 @@ void ZmqServer::serve()
         {
           // EAGAIN can occur when using `zmq_poll`, which doesn't inspect for message validity
           if (message != net::zmq::make_error_code(EAGAIN))
-            MANGONOTE_THROW(message.error(), "Read failure on ZMQ-RPC");
+            IDLECHAIN_THROW(message.error(), "Read failure on ZMQ-RPC");
         }
         else // no errors
         {
@@ -173,7 +173,7 @@ void ZmqServer::serve()
 
           const boost::string_ref response_view{reinterpret_cast<const char*>(response.data()), response.size()};
           MDEBUG("Sending RPC reply: \"" << response_view << "\"");
-          MANGONOTE_UNWRAP(net::zmq::send(std::move(response), rep.get()));
+          IDLECHAIN_UNWRAP(net::zmq::send(std::move(response), rep.get()));
         }
       }
     }

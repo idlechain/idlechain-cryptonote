@@ -30,8 +30,8 @@
 #include "reg_exp_definer.h"
 #include <boost/lexical_cast.hpp>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net"
 
 namespace epee
 {

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
     const uint8_t initial_hf =  (uint8_t)get_env_long("TEST_MIN_HF", HF_VERSION_CLSAG);
     const uint8_t max_hf = (uint8_t)get_env_long("TEST_MAX_HF", HF_VERSION_CLSAG);
     auto sync_test = get_env_long("TEST_KI_SYNC", 1);
-    MINFO("Test versions " << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")");
+    MINFO("Test versions " << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")");
     MINFO("Testing hardforks [" << (int)initial_hf << ", " << (int)max_hf << "], sync-test: " << sync_test);
 
     cryptonote::core core_obj(nullptr);
@@ -1923,26 +1923,26 @@ bool wallet_api_tests::generate(std::vector<test_event_entry>& events)
   init();
   test_setup(events);
   const std::string wallet_path = (m_wallet_dir / "wallet").string();
-  const auto api_net_type = m_network_type == TESTNET ? Mangonote::TESTNET : Mangonote::MAINNET;
+  const auto api_net_type = m_network_type == TESTNET ? IDLEChain Project::TESTNET : IDLEChain Project::MAINNET;
 
-  Mangonote::WalletManager *wmgr = Mangonote::WalletManagerFactory::getWalletManager();
-  std::unique_ptr<Mangonote::Wallet> w{wmgr->createWalletFromDevice(wallet_path, "", api_net_type, m_trezor_path, 1)};
+  IDLEChain Project::WalletManager *wmgr = IDLEChain Project::WalletManagerFactory::getWalletManager();
+  std::unique_ptr<IDLEChain Project::Wallet> w{wmgr->createWalletFromDevice(wallet_path, "", api_net_type, m_trezor_path, 1)};
   CHECK_AND_ASSERT_THROW_MES(w->init(daemon()->rpc_addr(), 0), "Wallet init fail");
   CHECK_AND_ASSERT_THROW_MES(w->refresh(), "Refresh fail");
   uint64_t balance = w->balance(0);
   MDEBUG("Balance: " << balance);
-  CHECK_AND_ASSERT_THROW_MES(w->status() == Mangonote::PendingTransaction::Status_Ok, "Status nok, " << w->errorString());
+  CHECK_AND_ASSERT_THROW_MES(w->status() == IDLEChain Project::PendingTransaction::Status_Ok, "Status nok, " << w->errorString());
 
   auto addr = get_address(m_eve_account);
   auto recepient_address = cryptonote::get_account_address_as_str(m_network_type, false, addr);
-  Mangonote::PendingTransaction * transaction = w->createTransaction(recepient_address,
+  IDLEChain Project::PendingTransaction * transaction = w->createTransaction(recepient_address,
                                                                   "",
                                                                   MK_COINS(10),
                                                                   num_mixin(),
-                                                                  Mangonote::PendingTransaction::Priority_Medium,
+                                                                  IDLEChain Project::PendingTransaction::Priority_Medium,
                                                                   0,
                                                                   std::set<uint32_t>{});
-  CHECK_AND_ASSERT_THROW_MES(transaction->status() == Mangonote::PendingTransaction::Status_Ok, "Status nok: " << transaction->status() << ", msg: " << transaction->errorString());
+  CHECK_AND_ASSERT_THROW_MES(transaction->status() == IDLEChain Project::PendingTransaction::Status_Ok, "Status nok: " << transaction->status() << ", msg: " << transaction->errorString());
   w->refresh();
 
   CHECK_AND_ASSERT_THROW_MES(w->balance(0) == balance, "Err");

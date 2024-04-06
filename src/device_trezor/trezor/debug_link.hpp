@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_DEBUG_LINK_H
-#define MANGONOTE_DEBUG_LINK_H
+#ifndef IDLECHAIN_DEBUG_LINK_H
+#define IDLECHAIN_DEBUG_LINK_H
 
 #include "transport.hpp"
 #include "messages/messages-debug.pb.h"
@@ -91,4 +91,4 @@ namespace trezor {
 }
 }
 
-#endif //MANGONOTE_DEBUG_LINK_H
+#endif //IDLECHAIN_DEBUG_LINK_H

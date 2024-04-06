@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_MESSAGES_MAP_H
-#define MANGONOTE_MESSAGES_MAP_H
+#ifndef IDLECHAIN_MESSAGES_MAP_H
+#define IDLECHAIN_MESSAGES_MAP_H
 
 #include <string>
 #include <type_traits>
@@ -92,4 +92,4 @@ namespace trezor {
 
 }}
 
-#endif //MANGONOTE_MESSAGES_MAP_H
+#endif //IDLECHAIN_MESSAGES_MAP_H

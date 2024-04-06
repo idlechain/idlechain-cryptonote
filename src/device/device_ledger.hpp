@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 // 
 // All rights reserved.
@@ -59,7 +59,7 @@ namespace hw {
 
     #ifdef WITH_DEVICE_LEDGER
 
-    // Origin: https://github.com/LedgerHQ/ledger-app-mangonote/blob/master/src/mangonote_types.h
+    // Origin: https://github.com/LedgerHQ/ledger-app-idlechain/blob/master/src/idlechain_types.h
     #define SW_OK                                   0x9000
     #define SW_WRONG_LENGTH                         0x6700
     #define SW_SECURITY_PIN_LOCKED                  0x6910

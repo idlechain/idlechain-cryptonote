@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // 
@@ -91,10 +91,10 @@ private:
     boost::filesystem::path path =
       boost::filesystem::temp_directory_path();
 #if defined(__MINGW32__) || defined(__MINGW__)
-    filename = tempnam(path.string().c_str(), "mangonote-ringdb-test-");
+    filename = tempnam(path.string().c_str(), "idlechain-ringdb-test-");
     EXPECT_TRUE(filename != NULL);
 #else
-    path /= "mangonote-ringdb-test-XXXXXX";
+    path /= "idlechain-ringdb-test-XXXXXX";
     filename = strdup(path.string().c_str());
     EXPECT_TRUE(mkdtemp(filename) != NULL);
 #endif

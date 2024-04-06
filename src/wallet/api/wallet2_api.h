@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -42,7 +42,7 @@
 #include <cstdint>
 
 //  Public interface for libwallet library
-namespace Mangonote {
+namespace IDLEChain Project {
 
 enum NetworkType : uint8_t {
     MAINNET = 0,
@@ -543,7 +543,7 @@ struct Wallet
      * \param upper_transaction_size_limit
      * \param daemon_username
      * \param daemon_password
-     * \param lightWallet - start wallet in light mode, connect to a openmangonote compatible server.
+     * \param lightWallet - start wallet in light mode, connect to a openidlechain compatible server.
      * \param proxy_address - set proxy address, empty string to disable
      * \return  - true on success
      */
@@ -1341,7 +1341,7 @@ struct WalletManager
     //! stops mining
     virtual bool stopMining() = 0;
 
-    //! resolves an OpenAlias address to a mangonote address
+    //! resolves an OpenAlias address to a idlechain address
     virtual std::string resolveOpenAlias(const std::string &address, bool &dnssec_valid) const = 0;
 
     //! checks for an update and returns version, hash and url

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -33,8 +33,8 @@
 #include "string_tools.h"
 #include "daemon/command_server.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace daemonize {
 
@@ -413,7 +413,7 @@ bool t_command_server::apropos(const std::vector<std::string>& args)
 std::string t_command_server::get_commands_str()
 {
   std::stringstream ss;
-  ss << "Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")" << std::endl;
+  ss << "IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")" << std::endl;
   ss << "Commands: " << std::endl;
   std::string usage = m_command_lookup.get_usage();
   boost::replace_all(usage, "\n", "\n  ");

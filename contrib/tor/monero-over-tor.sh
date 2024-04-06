@@ -2,8 +2,8 @@
 
 DIR=$(realpath $(dirname $0))
 
-echo "Checking mangonoted..."
-mangonoted=""
+echo "Checking idlechaind..."
+idlechaind=""
 for dir in \
   . \
   "$DIR" \
@@ -15,20 +15,20 @@ for dir in \
   "$DIR/build/Windows/master/release/bin" \
   "$DIR/../../build/Windows/master/release/bin"
 do
-  if test -x "$dir/mangonoted"
+  if test -x "$dir/idlechaind"
   then
-    mangonoted="$dir/mangonoted"
+    idlechaind="$dir/idlechaind"
     break
   fi
 done
-if test -z "$mangonoted"
+if test -z "$idlechaind"
 then
-  echo "mangonoted not found"
+  echo "idlechaind not found"
   exit 1
 fi
-echo "Found: $mangonoted"
+echo "Found: $idlechaind"
 
-TORDIR="$DIR/mangonote-over-tor"
+TORDIR="$DIR/idlechain-over-tor"
 TORRC="$TORDIR/torrc"
 HOSTNAMEFILE="$TORDIR/hostname"
 echo "Creating configuration..."
@@ -64,9 +64,9 @@ then
   exit 1
 fi
 
-echo "Starting mangonoted..."
+echo "Starting idlechaind..."
 HOSTNAME=$(cat "$HOSTNAMEFILE")
-"$mangonoted" \
+"$idlechaind" \
   --anonymous-inbound "$HOSTNAME":18083,127.0.0.1:18083,25 --tx-proxy tor,127.0.0.1:9050,10 \
   --add-priority-node zbjkbsxc5munw3qusl7j2hpcmikhqocdf4pqhnhtpzw5nt5jrmofptid.onion:18083 \
   --add-priority-node 2xmrnode5itf65lz.onion:18083 \
@@ -75,7 +75,7 @@ ready=0
 for i in `seq 10`
 do
   sleep 1
-  status=$("$mangonoted" status)
+  status=$("$idlechaind" status)
   echo "$status" | grep -q "Height:"
   if test $? = 0
   then
@@ -85,8 +85,8 @@ do
 done
 if test "$ready" = 0
 then
-  echo "Error starting mangonoted"
-  tail -n 400 "$HOME/.bitmangonote/bitmangonote.log" | grep -Ev stacktrace\|"Error: Couldn't connect to daemon:"\|"src/daemon/main.cpp:.*Mangonote\ \'" | tail -n 20
+  echo "Error starting idlechaind"
+  tail -n 400 "$HOME/.bitidlechain/bitidlechain.log" | grep -Ev stacktrace\|"Error: Couldn't connect to daemon:"\|"src/daemon/main.cpp:.*IDLEChain Project\ \'" | tail -n 20
   exit 1
 fi
 

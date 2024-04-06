@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -35,7 +35,7 @@
 
 #include <vector>
 
-namespace Mangonote {
+namespace IDLEChain Project {
   
 Subaddress::~Subaddress() {}
   

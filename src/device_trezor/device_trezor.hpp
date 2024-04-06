@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_DEVICE_TREZOR_H
-#define MANGONOTE_DEVICE_TREZOR_H
+#ifndef IDLECHAIN_DEVICE_TREZOR_H
+#define IDLECHAIN_DEVICE_TREZOR_H
 
 #include "trezor.hpp"
 #include "device/device.hpp"
@@ -70,7 +70,7 @@ namespace trezor {
 
       unsigned client_version();
       void transaction_versions_check(const ::tools::wallet2::unsigned_tx_set & unsigned_tx, hw::tx_aux_data & aux_data);
-      void transaction_pre_check(std::shared_ptr<messages::mangonote::MangonoteTransactionInitRequest> init_msg);
+      void transaction_pre_check(std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionInitRequest> init_msg);
       void transaction_check(const protocol::tx::TData & tdata, const hw::tx_aux_data & aux_data);
       void device_state_initialize_unsafe() override;
       void live_refresh_start_unsafe();
@@ -121,7 +121,7 @@ namespace trezor {
       /**
        * Get address. Throws.
        */
-      std::shared_ptr<messages::mangonote::MangonoteAddress> get_address(
+      std::shared_ptr<messages::idlechain::IDLEChain ProjectAddress> get_address(
           const boost::optional<cryptonote::subaddress_index> & subaddress = boost::none,
           const boost::optional<crypto::hash8> & payment_id = boost::none,
           bool show_address = false,
@@ -131,7 +131,7 @@ namespace trezor {
       /**
        * Get watch key from device. Throws.
        */
-      std::shared_ptr<messages::mangonote::MangonoteWatchKey> get_view_key(
+      std::shared_ptr<messages::idlechain::IDLEChain ProjectWatchKey> get_view_key(
           const boost::optional<std::vector<uint32_t>> & path = boost::none,
           const boost::optional<cryptonote::network_type> & network_type = boost::none);
 
@@ -232,4 +232,4 @@ namespace trezor {
 
 }
 }
-#endif //MANGONOTE_DEVICE_TREZOR_H
+#endif //IDLECHAIN_DEVICE_TREZOR_H

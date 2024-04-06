@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_PROTOCOL_H
-#define MANGONOTE_PROTOCOL_H
+#ifndef IDLECHAIN_PROTOCOL_H
+#define IDLECHAIN_PROTOCOL_H
 
 #include "trezor_defs.hpp"
 #include "device/device_cold.hpp"
@@ -107,59 +107,59 @@ namespace chacha {
 // Cold Key image sync
 namespace ki {
 
-  using MangonoteTransferDetails = messages::mangonote::MangonoteKeyImageSyncStepRequest_MangonoteTransferDetails;
-  using MangonoteSubAddressIndicesList = messages::mangonote::MangonoteKeyImageExportInitRequest_MangonoteSubAddressIndicesList;
-  using MangonoteExportedKeyImage = messages::mangonote::MangonoteKeyImageSyncStepAck_MangonoteExportedKeyImage;
+  using IDLEChain ProjectTransferDetails = messages::idlechain::IDLEChain ProjectKeyImageSyncStepRequest_IDLEChain ProjectTransferDetails;
+  using IDLEChain ProjectSubAddressIndicesList = messages::idlechain::IDLEChain ProjectKeyImageExportInitRequest_IDLEChain ProjectSubAddressIndicesList;
+  using IDLEChain ProjectExportedKeyImage = messages::idlechain::IDLEChain ProjectKeyImageSyncStepAck_IDLEChain ProjectExportedKeyImage;
   using exported_key_image = hw::device_cold::exported_key_image;
 
   /**
-   * Converts transfer details to the MangonoteTransferDetails required for KI sync
+   * Converts transfer details to the IDLEChain ProjectTransferDetails required for KI sync
    */
   bool key_image_data(wallet_shim * wallet,
                       const std::vector<tools::wallet2::transfer_details> & transfers,
-                      std::vector<MangonoteTransferDetails> & res);
+                      std::vector<IDLEChain ProjectTransferDetails> & res);
 
   /**
-   * Computes a hash over MangonoteTransferDetails. Commitment used in the KI sync.
+   * Computes a hash over IDLEChain ProjectTransferDetails. Commitment used in the KI sync.
    */
-  std::string compute_hash(const MangonoteTransferDetails & rr);
+  std::string compute_hash(const IDLEChain ProjectTransferDetails & rr);
 
   /**
    * Generates KI sync request with commitments computed.
    */
-  void generate_commitment(std::vector<MangonoteTransferDetails> & mtds,
+  void generate_commitment(std::vector<IDLEChain ProjectTransferDetails> & mtds,
                            const std::vector<tools::wallet2::transfer_details> & transfers,
-                           std::shared_ptr<messages::mangonote::MangonoteKeyImageExportInitRequest> & req);
+                           std::shared_ptr<messages::idlechain::IDLEChain ProjectKeyImageExportInitRequest> & req);
 
   /**
    * Processes Live refresh step response, parses KI, checks the signature
    */
   void live_refresh_ack(const ::crypto::secret_key & view_key_priv,
                         const ::crypto::public_key& out_key,
-                        const std::shared_ptr<messages::mangonote::MangonoteLiveRefreshStepAck> & ack,
+                        const std::shared_ptr<messages::idlechain::IDLEChain ProjectLiveRefreshStepAck> & ack,
                         ::cryptonote::keypair& in_ephemeral,
                         ::crypto::key_image& ki);
 }
 
 // Cold transaction signing
 namespace tx {
-  using TsxData = messages::mangonote::MangonoteTransactionInitRequest_MangonoteTransactionData;
-  using MangonoteTransactionDestinationEntry = messages::mangonote::MangonoteTransactionDestinationEntry;
-  using MangonoteAccountPublicAddress = messages::mangonote::MangonoteTransactionDestinationEntry_MangonoteAccountPublicAddress;
-  using MangonoteTransactionSourceEntry = messages::mangonote::MangonoteTransactionSourceEntry;
-  using MangonoteMultisigKLRki = messages::mangonote::MangonoteTransactionSourceEntry_MangonoteMultisigKLRki;
-  using MangonoteOutputEntry = messages::mangonote::MangonoteTransactionSourceEntry_MangonoteOutputEntry;
-  using MangonoteRctKey = messages::mangonote::MangonoteTransactionSourceEntry_MangonoteOutputEntry_MangonoteRctKeyPublic;
-  using MangonoteRsigData = messages::mangonote::MangonoteTransactionRsigData;
+  using TsxData = messages::idlechain::IDLEChain ProjectTransactionInitRequest_IDLEChain ProjectTransactionData;
+  using IDLEChain ProjectTransactionDestinationEntry = messages::idlechain::IDLEChain ProjectTransactionDestinationEntry;
+  using IDLEChain ProjectAccountPublicAddress = messages::idlechain::IDLEChain ProjectTransactionDestinationEntry_IDLEChain ProjectAccountPublicAddress;
+  using IDLEChain ProjectTransactionSourceEntry = messages::idlechain::IDLEChain ProjectTransactionSourceEntry;
+  using IDLEChain ProjectMultisigKLRki = messages::idlechain::IDLEChain ProjectTransactionSourceEntry_IDLEChain ProjectMultisigKLRki;
+  using IDLEChain ProjectOutputEntry = messages::idlechain::IDLEChain ProjectTransactionSourceEntry_IDLEChain ProjectOutputEntry;
+  using IDLEChain ProjectRctKey = messages::idlechain::IDLEChain ProjectTransactionSourceEntry_IDLEChain ProjectOutputEntry_IDLEChain ProjectRctKeyPublic;
+  using IDLEChain ProjectRsigData = messages::idlechain::IDLEChain ProjectTransactionRsigData;
 
   using tx_construction_data = tools::wallet2::tx_construction_data;
   using unsigned_tx_set = tools::wallet2::unsigned_tx_set;
 
-  void translate_address(MangonoteAccountPublicAddress * dst, const cryptonote::account_public_address * src);
-  void translate_dst_entry(MangonoteTransactionDestinationEntry * dst, const cryptonote::tx_destination_entry * src);
-  void translate_klrki(MangonoteMultisigKLRki * dst, const rct::multisig_kLRki * src);
-  void translate_rct_key(MangonoteRctKey * dst, const rct::ctkey * src);
-  std::string hash_addr(const MangonoteAccountPublicAddress * addr, boost::optional<uint64_t> amount = boost::none, boost::optional<bool> is_subaddr = boost::none);
+  void translate_address(IDLEChain ProjectAccountPublicAddress * dst, const cryptonote::account_public_address * src);
+  void translate_dst_entry(IDLEChain ProjectTransactionDestinationEntry * dst, const cryptonote::tx_destination_entry * src);
+  void translate_klrki(IDLEChain ProjectMultisigKLRki * dst, const rct::multisig_kLRki * src);
+  void translate_rct_key(IDLEChain ProjectRctKey * dst, const rct::ctkey * src);
+  std::string hash_addr(const IDLEChain ProjectAccountPublicAddress * addr, boost::optional<uint64_t> amount = boost::none, boost::optional<bool> is_subaddr = boost::none);
   std::string hash_addr(const std::string & spend_key, const std::string & view_key, boost::optional<uint64_t> amount = boost::none, boost::optional<bool> is_subaddr = boost::none);
   std::string hash_addr(const ::crypto::public_key * spend_key, const ::crypto::public_key * view_key, boost::optional<uint64_t> amount = boost::none, boost::optional<bool> is_subaddr = boost::none);
   ::crypto::secret_key compute_enc_key(const ::crypto::secret_key & private_view_key, const std::string & aux, const std::string & salt);
@@ -178,7 +178,7 @@ namespace tx {
     unsigned rsig_type;
     int bp_version;
     std::vector<uint64_t> grouping_vct;
-    std::shared_ptr<MangonoteRsigData> rsig_param;
+    std::shared_ptr<IDLEChain ProjectRsigData> rsig_param;
     size_t cur_input_idx;
     size_t cur_output_idx;
     size_t cur_batch_idx;
@@ -245,41 +245,41 @@ namespace tx {
     void extract_payment_id();
     void compute_integrated_indices(TsxData * tsx_data);
     bool should_compute_bp_now() const;
-    void compute_bproof(messages::mangonote::MangonoteTransactionRsigData & rsig_data);
+    void compute_bproof(messages::idlechain::IDLEChain ProjectTransactionRsigData & rsig_data);
     void process_bproof(rsig_v & bproof);
-    void set_tx_input(MangonoteTransactionSourceEntry * dst, size_t idx, bool need_ring_keys=false, bool need_ring_indices=false);
+    void set_tx_input(IDLEChain ProjectTransactionSourceEntry * dst, size_t idx, bool need_ring_keys=false, bool need_ring_indices=false);
 
   public:
     Signer(wallet_shim * wallet2, const unsigned_tx_set * unsigned_tx, size_t tx_idx = 0, hw::tx_aux_data * aux_data = nullptr);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionInitRequest> step_init();
-    void step_init_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionInitAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionInitRequest> step_init();
+    void step_init_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionInitAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionSetInputRequest> step_set_input(size_t idx);
-    void step_set_input_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionSetInputAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionSetInputRequest> step_set_input(size_t idx);
+    void step_set_input_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionSetInputAck> ack);
 
     void sort_ki();
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionInputViniRequest> step_set_vini_input(size_t idx);
-    void step_set_vini_input_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionInputViniAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionInputViniRequest> step_set_vini_input(size_t idx);
+    void step_set_vini_input_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionInputViniAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionAllInputsSetRequest> step_all_inputs_set();
-    void step_all_inputs_set_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionAllInputsSetAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionAllInputsSetRequest> step_all_inputs_set();
+    void step_all_inputs_set_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionAllInputsSetAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionSetOutputRequest> step_set_output(size_t idx);
-    void step_set_output_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionSetOutputRequest> step_set_output(size_t idx);
+    void step_set_output_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionSetOutputRequest> step_rsig(size_t idx);
-    void step_set_rsig_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionSetOutputRequest> step_rsig(size_t idx);
+    void step_set_rsig_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionAllOutSetRequest> step_all_outs_set();
-    void step_all_outs_set_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionAllOutSetAck> ack, hw::device &hwdev);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionAllOutSetRequest> step_all_outs_set();
+    void step_all_outs_set_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionAllOutSetAck> ack, hw::device &hwdev);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionSignInputRequest> step_sign_input(size_t idx);
-    void step_sign_input_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionSignInputAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionSignInputRequest> step_sign_input(size_t idx);
+    void step_sign_input_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionSignInputAck> ack);
 
-    std::shared_ptr<messages::mangonote::MangonoteTransactionFinalRequest> step_final();
-    void step_final_ack(std::shared_ptr<const messages::mangonote::MangonoteTransactionFinalAck> ack);
+    std::shared_ptr<messages::idlechain::IDLEChain ProjectTransactionFinalRequest> step_final();
+    void step_final_ack(std::shared_ptr<const messages::idlechain::IDLEChain ProjectTransactionFinalAck> ack);
 
     std::string store_tx_aux_info();
 
@@ -346,14 +346,14 @@ namespace tx {
   // TX Key decryption
   void load_tx_key_data(hw::device_cold::tx_key_data_t & res, const std::string & data);
 
-  std::shared_ptr<messages::mangonote::MangonoteGetTxKeyRequest> get_tx_key(
+  std::shared_ptr<messages::idlechain::IDLEChain ProjectGetTxKeyRequest> get_tx_key(
       const hw::device_cold::tx_key_data_t & tx_data);
 
   void get_tx_key_ack(
       std::vector<::crypto::secret_key> & tx_keys,
       const std::string & tx_prefix_hash,
       const ::crypto::secret_key & view_key_priv,
-      std::shared_ptr<const messages::mangonote::MangonoteGetTxKeyAck> ack
+      std::shared_ptr<const messages::idlechain::IDLEChain ProjectGetTxKeyAck> ack
   );
 }
 
@@ -362,4 +362,4 @@ namespace tx {
 }
 
 
-#endif //MANGONOTE_PROTOCOL_H
+#endif //IDLECHAIN_PROTOCOL_H

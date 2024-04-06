@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -113,7 +113,7 @@ namespace net
         const boost::string_ref port =
             address.substr(host.size() + (host.size() == address.size() ? 0 : 1));
 
-        MANGONOTE_CHECK(host_check(host));
+        IDLECHAIN_CHECK(host_check(host));
 
         std::uint16_t porti = default_port;
         if (!port.empty() && !epee::string_tools::get_xtype_from_string(porti, std::string{port}))

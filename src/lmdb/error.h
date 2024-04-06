@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // All rights reserved.
 //
@@ -31,7 +31,7 @@
 #include <type_traits>
 
 //! Executes a LMDB command, and returns errors via `lmdb::error` enum.
-#define MANGONOTE_LMDB_CHECK(...)         \
+#define IDLECHAIN_LMDB_CHECK(...)         \
     do                                 \
     {                                  \
         const int err = __VA_ARGS__ ;  \

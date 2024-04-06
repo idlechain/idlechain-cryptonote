@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -182,7 +182,7 @@ namespace daemonizer
     }
     else // interactive
     {
-      //LOG_PRINT_L0("Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL);
+      //LOG_PRINT_L0("IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL);
       if (command_line::has_arg(vm, arg_non_interactive))
         return executor.run_non_interactive(vm);
       else

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 // 
@@ -43,8 +43,8 @@
 #include "net/net_ssl.h"
 #include "file_io_utils.h" // to validate .crt and .key paths
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "net.ssl"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "net.ssl"
 
 // openssl genrsa -out /tmp/KEY 4096
 // openssl req -new -key /tmp/KEY -out /tmp/REQ

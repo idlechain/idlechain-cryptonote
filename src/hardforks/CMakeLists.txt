@@ -29,13 +29,13 @@
 set(hardforks_sources
   hardforks.cpp)
 
-mangonote_find_all_headers(hardforks_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(hardforks_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(hardforks_private_headers)
 
-mangonote_private_headers(hardforks
+idlechain_private_headers(hardforks
   ${hardforks_private_headers})
-mangonote_add_library(hardforks
+idlechain_add_library(hardforks
   ${hardforks_sources}
   ${hardforks_headers}
   ${hardforks_private_headers})

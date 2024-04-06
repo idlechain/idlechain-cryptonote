@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -141,22 +141,22 @@ TEST(DNSResolver, GetTXTRecord)
 {
   bool avail, valid;
 
-  std::vector<std::string> records = tools::DNSResolver::instance().get_txt_record("donate.mangonote.org", avail, valid);
+  std::vector<std::string> records = tools::DNSResolver::instance().get_txt_record("donate.idlecalypse.cc", avail, valid);
 
   EXPECT_NE(0, records.size());
 
   for (auto& rec : records)
   {
-    std::cout << "TXT record for donate.mangonote.org: " << rec << std::endl;
+    std::cout << "TXT record for donate.idlecalypse.cc: " << rec << std::endl;
   }
 
   // replace first @ with .
-  std::string addr = tools::DNSResolver::instance().get_dns_format_from_oa_address("donate@mangonote.org");
-  EXPECT_STREQ("donate.mangonote.org", addr.c_str());
+  std::string addr = tools::DNSResolver::instance().get_dns_format_from_oa_address("donate@idlecalypse.cc");
+  EXPECT_STREQ("donate.idlecalypse.cc", addr.c_str());
 
   // no change
-  addr = tools::DNSResolver::instance().get_dns_format_from_oa_address("donate.mangonote.org");
-  EXPECT_STREQ("donate.mangonote.org", addr.c_str());
+  addr = tools::DNSResolver::instance().get_dns_format_from_oa_address("donate.idlecalypse.cc");
+  EXPECT_STREQ("donate.idlecalypse.cc", addr.c_str());
 }
 
 TEST(DNSResolver, Localhost)

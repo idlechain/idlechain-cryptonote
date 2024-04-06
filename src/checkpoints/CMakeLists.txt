@@ -41,11 +41,11 @@ set(checkpoints_sources
 
 set(checkpoints_headers)
 
-mangonote_find_all_headers(checkpoints_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(checkpoints_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(checkpoints
+idlechain_private_headers(checkpoints
   ${checkpoints_private_headers})
-mangonote_add_library(checkpoints
+idlechain_add_library(checkpoints
   ${checkpoints_sources}
   ${checkpoints_headers}
   ${checkpoints_private_headers})

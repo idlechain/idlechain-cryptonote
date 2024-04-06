@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_DEVICE_COLD_H
-#define MANGONOTE_DEVICE_COLD_H
+#ifndef IDLECHAIN_DEVICE_COLD_H
+#define IDLECHAIN_DEVICE_COLD_H
 
 #include "wallet/wallet2.h"
 #include <boost/optional/optional.hpp>
@@ -186,4 +186,4 @@ namespace hw {
   };
 }
 
-#endif //MANGONOTE_DEVICE_COLD_H
+#endif //IDLECHAIN_DEVICE_COLD_H

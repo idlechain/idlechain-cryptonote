@@ -28,7 +28,7 @@ try:
         "messages.proto",
         "messages-common.proto",
         "messages-management.proto",
-        "messages-mangonote.proto",
+        "messages-idlechain.proto",
     ]
 
     if args.debug_msg:

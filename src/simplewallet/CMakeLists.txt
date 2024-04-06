@@ -31,11 +31,11 @@ set(simplewallet_sources
 
 set(simplewallet_headers)
 
-mangonote_find_all_headers(simplewallet_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(simplewallet_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(simplewallet
+idlechain_private_headers(simplewallet
   ${simplewallet_private_headers})
-mangonote_add_executable(simplewallet
+idlechain_add_executable(simplewallet
   ${simplewallet_sources}
   ${simplewallet_headers}
   ${simplewallet_private_headers})

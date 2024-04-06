@@ -30,8 +30,8 @@
 #include <boost/utility/string_ref.hpp>
 #include <algorithm>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "serialization"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "serialization"
 
 namespace epee 
 {

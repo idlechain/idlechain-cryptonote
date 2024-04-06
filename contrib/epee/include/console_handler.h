@@ -45,8 +45,8 @@
   #include "readline_buffer.h"
 #endif
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "console_handler"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "console_handler"
 
 namespace epee
 {

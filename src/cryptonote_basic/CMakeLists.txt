@@ -36,7 +36,7 @@ if(APPLE)
   endif()
 endif()
 
-mangonote_add_library(cryptonote_format_utils_basic
+idlechain_add_library(cryptonote_format_utils_basic
   cryptonote_format_utils_basic.cpp
 )
 target_link_libraries(cryptonote_format_utils_basic
@@ -56,11 +56,11 @@ set(cryptonote_basic_sources
 
 set(cryptonote_basic_headers)
 
-mangonote_find_all_headers(cryptonote_basic_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(cryptonote_basic_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(cryptonote_basic
+idlechain_private_headers(cryptonote_basic
   ${cryptonote_basic_private_headers})
-mangonote_add_library(cryptonote_basic
+idlechain_add_library(cryptonote_basic
   ${cryptonote_basic_sources}
   ${cryptonote_basic_headers}
   ${cryptonote_basic_private_headers})

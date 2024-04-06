@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -111,11 +111,11 @@ namespace
   TEST_F(fee, double_at_full)
   {
     static const uint64_t block_rewards[] = {
-      20000000000000ull, // 20 mangonote
+      20000000000000ull, // 20 idlechain
       13000000000000ull,
       1000000000000ull,
-      600000000000ull, // .6 mangonote, minimum reward per block at 2min
-      300000000000ull, // .3 mangonote, minimum reward per block at 1min
+      600000000000ull, // .6 idlechain, minimum reward per block at 2min
+      300000000000ull, // .3 idlechain, minimum reward per block at 1min
     };
     static const uint64_t median_block_weights[] = {
       CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2,

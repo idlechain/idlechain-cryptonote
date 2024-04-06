@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2016-2022, The Monero Project
 // 
 // All rights reserved.
@@ -27,8 +27,8 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef MANGONOTE_EXCEPTION_H
-#define MANGONOTE_EXCEPTION_H
+#ifndef IDLECHAIN_EXCEPTION_H
+#define IDLECHAIN_EXCEPTION_H
 
 #include <string>
 

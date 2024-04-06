@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 //
 // All rights reserved.
@@ -34,7 +34,7 @@
 #include "net/http.h"
 #include <string>
 
-namespace Mangonote {
+namespace IDLEChain Project {
 
 class WalletManagerImpl : public WalletManager
 {

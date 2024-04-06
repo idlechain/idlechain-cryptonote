@@ -1,5 +1,5 @@
 //#define DBG
-// Copyright (c) 2016, Mangonote Research Labs
+// Copyright (c) 2016, IDLEChain Project Research Labs
 //
 // Author: Shen Noether <shen.noether@gmx.com>
 //

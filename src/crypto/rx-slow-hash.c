@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 //
 // All rights reserved.
@@ -104,7 +104,7 @@ static inline int disabled_flags(void) {
     return flags;
   }
 
-  const char *env = getenv("MANGONOTE_RANDOMX_UMASK");
+  const char *env = getenv("IDLECHAIN_RANDOMX_UMASK");
   if (!env) {
     flags = 0;
   }
@@ -200,16 +200,16 @@ static void rx_alloc_dataset(randomx_flags flags, randomx_dataset** dataset, int
     static int shown = 0;
     if (!shown) {
       shown = 1;
-      minfo(RX_LOGCAT, "RandomX dataset is disabled by MANGONOTE_RANDOMX_UMASK environment variable.");
+      minfo(RX_LOGCAT, "RandomX dataset is disabled by IDLECHAIN_RANDOMX_UMASK environment variable.");
     }
     return;
   }
 
-  if (!ignore_env && !getenv("MANGONOTE_RANDOMX_FULL_MEM")) {
+  if (!ignore_env && !getenv("IDLECHAIN_RANDOMX_FULL_MEM")) {
     static int shown = 0;
     if (!shown) {
       shown = 1;
-      minfo(RX_LOGCAT, "RandomX dataset is not enabled by default. Use MANGONOTE_RANDOMX_FULL_MEM environment variable to enable it.");
+      minfo(RX_LOGCAT, "RandomX dataset is not enabled by default. Use IDLECHAIN_RANDOMX_FULL_MEM environment variable to enable it.");
     }
     return;
   }

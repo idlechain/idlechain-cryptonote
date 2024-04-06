@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -45,9 +45,9 @@ namespace mms
 
 struct transport_message_t
 {
-  cryptonote::account_public_address source_mangonote_address;
+  cryptonote::account_public_address source_idlechain_address;
   std::string source_transport_address;
-  cryptonote::account_public_address destination_mangonote_address;
+  cryptonote::account_public_address destination_idlechain_address;
   std::string destination_transport_address;
   crypto::chacha_iv iv;
   crypto::public_key encryption_public_key;
@@ -62,9 +62,9 @@ struct transport_message_t
   std::string transport_id;
 
   BEGIN_KV_SERIALIZE_MAP()
-    KV_SERIALIZE(source_mangonote_address)
+    KV_SERIALIZE(source_idlechain_address)
     KV_SERIALIZE(source_transport_address)
-    KV_SERIALIZE(destination_mangonote_address)
+    KV_SERIALIZE(destination_idlechain_address)
     KV_SERIALIZE(destination_transport_address)
     KV_SERIALIZE_VAL_POD_AS_BLOB(iv)
     KV_SERIALIZE_VAL_POD_AS_BLOB(encryption_public_key)

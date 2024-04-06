@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 // 
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // References:
-// - https://github.com/ArticMine/Mangonote-Documents/blob/master/MangonoteScaling2021.pdf
-// - https://github.com/mangonote-project/research-lab/issues/70
+// - https://github.com/ArticMine/IDLEChain Project-Documents/blob/master/IDLEChain ProjectScaling2021.pdf
+// - https://github.com/idlechain-project/research-lab/issues/70
 
 #define IN_UNIT_TESTS
 

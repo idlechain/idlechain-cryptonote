@@ -70,7 +70,7 @@ set(core_tests_headers
   rct2.h
   wallet_tools.h)
 
-mangonote_add_minimal_executable(core_tests
+idlechain_add_minimal_executable(core_tests
   ${core_tests_sources}
   ${core_tests_headers})
 target_link_libraries(core_tests

@@ -37,11 +37,11 @@ set(daemon_sources
 
 set(daemon_headers)
 
-mangonote_find_all_headers(daemon_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(daemon_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(daemon
+idlechain_private_headers(daemon
   ${daemon_private_headers})
-mangonote_add_executable(daemon
+idlechain_add_executable(daemon
   ${daemon_sources}
   ${daemon_headers}
   ${daemon_private_headers})

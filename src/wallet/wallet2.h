@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -74,8 +74,8 @@
 #include "wallet_light_rpc.h"
 #include "wallet_rpc_helpers.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "wallet.wallet2"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "wallet.wallet2"
 
 #define THROW_ON_RPC_RESPONSE_ERROR(r, error, res, method, ...) \
   do { \
@@ -1278,7 +1278,7 @@ private:
     }
 
     BEGIN_SERIALIZE_OBJECT()
-      MAGIC_FIELD("mangonote wallet cache")
+      MAGIC_FIELD("idlechain wallet cache")
       VERSION_FIELD(1)
       FIELD(m_blockchain)
       FIELD(m_transfers)

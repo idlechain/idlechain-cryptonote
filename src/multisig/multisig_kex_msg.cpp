@@ -48,8 +48,8 @@ extern "C"
 #include <vector>
 
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "multisig"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "multisig"
 
 const boost::string_ref MULTISIG_KEX_V1_MAGIC{"MultisigV1"};
 const boost::string_ref MULTISIG_KEX_MSG_V1_MAGIC{"MultisigxV1"};

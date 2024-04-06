@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -1098,7 +1098,7 @@ namespace Language
       "mokadi",
       "molaro",
       "momento",
-      "mangonote",
+      "idlechain",
       "mopso",
       "mordi",
       "moskito",

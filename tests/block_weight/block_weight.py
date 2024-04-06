@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Simulate a maximal block attack on the Mangonote network
+# Simulate a maximal block attack on the IDLEChain Project network
 # This uses the scheme proposed by ArticMine
 # Written by Sarang Nother
 # Copyright (c) 2019-2022, The Monero Project

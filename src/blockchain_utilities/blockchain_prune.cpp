@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -41,8 +41,8 @@
 #include "blockchain_db/lmdb/db_lmdb.h"
 #include "version.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "bcutil"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "bcutil"
 
 #define MDB_val_set(var, val)   MDB_val var = {sizeof(val), (void *)&val}
 
@@ -484,12 +484,12 @@ int main(int argc, char* argv[])
 
   if (command_line::get_arg(vm, command_line::arg_help))
   {
-    std::cout << "Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")" << ENDL << ENDL;
+    std::cout << "IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")" << ENDL << ENDL;
     std::cout << desc_options << std::endl;
     return 1;
   }
 
-  mlog_configure(mlog_get_default_log_path("mangonote-blockchain-prune.log"), true);
+  mlog_configure(mlog_get_default_log_path("idlechain-blockchain-prune.log"), true);
   if (!command_line::is_arg_defaulted(vm, arg_log_level))
     mlog_set_log(command_line::get_arg(vm, arg_log_level).c_str());
   else

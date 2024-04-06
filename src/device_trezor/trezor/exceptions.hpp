@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_EXCEPTIONS_H
-#define MANGONOTE_EXCEPTIONS_H
+#ifndef IDLECHAIN_EXCEPTIONS_H
+#define IDLECHAIN_EXCEPTIONS_H
 
 #include <exception>
 #include <string>
@@ -191,4 +191,4 @@ namespace proto {
 }
 }
 }
-#endif //MANGONOTE_EXCEPTIONS_H
+#endif //IDLECHAIN_EXCEPTIONS_H

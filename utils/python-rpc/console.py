@@ -62,7 +62,7 @@ for n in range(1, len(sys.argv)):
     raise Exception('Failed to call version RPC: ' + str(e))
 
   if 'version' not in res:
-    raise Exception('Server is not a Mangonote process')
+    raise Exception('Server is not a IDLEChain Project process')
 
   if 'status' in res:
     daemons.append(framework.daemon.Daemon(port=port))

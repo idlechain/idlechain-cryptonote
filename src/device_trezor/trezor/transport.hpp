@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2017-2022, The Monero Project
 //
 // All rights reserved.
@@ -28,8 +28,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef MANGONOTE_TRANSPORT_H
-#define MANGONOTE_TRANSPORT_H
+#ifndef IDLECHAIN_TRANSPORT_H
+#define IDLECHAIN_TRANSPORT_H
 
 
 #include <boost/asio.hpp>
@@ -52,7 +52,7 @@
 #include "messages/messages.pb.h"
 #include "messages/messages-common.pb.h"
 #include "messages/messages-management.pb.h"
-#include "messages/messages-mangonote.pb.h"
+#include "messages/messages-idlechain.pb.h"
 
 namespace hw {
 namespace trezor {
@@ -83,7 +83,7 @@ namespace trezor {
     t_serialize(out_struct, req_param);
 
     http::fields_list additional_params;
-    additional_params.push_back(std::make_pair("Origin","https://mangonote.trezor.io"));
+    additional_params.push_back(std::make_pair("Origin","https://idlechain.trezor.io"));
     additional_params.push_back(std::make_pair("Content-Type","application/json; charset=utf-8"));
 
     const http::http_response_info* pri = nullptr;
@@ -411,4 +411,4 @@ namespace trezor {
 }}
 
 
-#endif //MANGONOTE_TRANSPORT_H
+#endif //IDLECHAIN_TRANSPORT_H

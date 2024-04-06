@@ -58,11 +58,11 @@ endif()
 
 set(common_headers)
 
-mangonote_find_all_headers(common_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(common_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(common
+idlechain_private_headers(common
   ${common_private_headers})
-mangonote_add_library(common
+idlechain_add_library(common
   ${common_sources}
   ${common_headers}
   ${common_private_headers}
@@ -82,5 +82,5 @@ target_link_libraries(common
     ${OPENSSL_LIBRARIES}
     ${EXTRA_LIBRARIES})
 
-#mangonote_install_headers(common
+#idlechain_install_headers(common
 #  ${common_headers})

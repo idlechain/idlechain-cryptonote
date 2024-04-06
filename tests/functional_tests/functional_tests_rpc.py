@@ -34,13 +34,13 @@ try:
 except:
   tests = DEFAULT_TESTS
 
-# a main offline mangonoted, does most of the tests
-# a restricted RPC mangonoted setup with RPC payment
-# two local online mangonoteds connected to each other
-N_MANGONOTEDS = 4
+# a main offline idlechaind, does most of the tests
+# a restricted RPC idlechaind setup with RPC payment
+# two local online idlechainds connected to each other
+N_IDLECHAINDS = 4
 
-# 4 wallets connected to the main offline mangonoted
-# 1 wallet connected to the first local online mangonoted
+# 4 wallets connected to the main offline idlechaind
+# 1 wallet connected to the first local online idlechaind
 # 1 offline wallet
 N_WALLETS = 6
 
@@ -48,14 +48,14 @@ WALLET_DIRECTORY = builddir + "/functional-tests-directory"
 FUNCTIONAL_TESTS_DIRECTORY = builddir + "/tests/functional_tests"
 DIFFICULTY = 10
 
-mangonoted_base = [builddir + "/bin/mangonoted", "--regtest", "--fixed-difficulty", str(DIFFICULTY), "--no-igd", "--p2p-bind-port", "mangonoted_p2p_port", "--rpc-bind-port", "mangonoted_rpc_port", "--zmq-rpc-bind-port", "mangonoted_zmq_port", "--zmq-pub", "mangonoted_zmq_pub", "--non-interactive", "--disable-dns-checkpoints", "--check-updates", "disabled", "--rpc-ssl", "disabled", "--data-dir", "mangonoted_data_dir", "--log-level", "1"]
-mangonoted_extra = [
+idlechaind_base = [builddir + "/bin/idlechaind", "--regtest", "--fixed-difficulty", str(DIFFICULTY), "--no-igd", "--p2p-bind-port", "idlechaind_p2p_port", "--rpc-bind-port", "idlechaind_rpc_port", "--zmq-rpc-bind-port", "idlechaind_zmq_port", "--zmq-pub", "idlechaind_zmq_pub", "--non-interactive", "--disable-dns-checkpoints", "--check-updates", "disabled", "--rpc-ssl", "disabled", "--data-dir", "idlechaind_data_dir", "--log-level", "1"]
+idlechaind_extra = [
   ["--offline"],
   ["--rpc-payment-address", "44SKxxLQw929wRF6BA9paQ1EWFshNnKhXM3qz6Mo3JGDE2YG3xyzVutMStEicxbQGRfrYvAAYxH6Fe8rnD56EaNwUiqhcwR", "--rpc-payment-difficulty", str(DIFFICULTY), "--rpc-payment-credits", "5000", "--offline"],
   ["--add-exclusive-node", "127.0.0.1:18283"],
   ["--add-exclusive-node", "127.0.0.1:18282"],
 ]
-wallet_base = [builddir + "/bin/mangonote-wallet-rpc", "--wallet-dir", WALLET_DIRECTORY, "--rpc-bind-port", "wallet_port", "--disable-rpc-login", "--rpc-ssl", "disabled", "--daemon-ssl", "disabled", "--log-level", "1", "--allow-mismatched-daemon-version"]
+wallet_base = [builddir + "/bin/idlechain-wallet-rpc", "--wallet-dir", WALLET_DIRECTORY, "--rpc-bind-port", "wallet_port", "--disable-rpc-login", "--rpc-ssl", "disabled", "--daemon-ssl", "disabled", "--log-level", "1", "--allow-mismatched-daemon-version"]
 wallet_extra = [
   ["--daemon-port", "18180"],
   ["--daemon-port", "18180"],
@@ -70,11 +70,11 @@ processes = []
 outputs = []
 ports = []
 
-for i in range(N_MANGONOTEDS):
-  command_lines.append([str(18180+i) if x == "mangonoted_rpc_port" else str(18280+i) if x == "mangonoted_p2p_port" else str(18380+i) if x == "mangonoted_zmq_port" else "tcp://127.0.0.1:" + str(18480+i) if x == "mangonoted_zmq_pub" else builddir + "/functional-tests-directory/mangonoted" + str(i) if x == "mangonoted_data_dir" else x for x in mangonoted_base])
-  if i < len(mangonoted_extra):
-    command_lines[-1] += mangonoted_extra[i]
-  outputs.append(open(FUNCTIONAL_TESTS_DIRECTORY + '/mangonoted' + str(i) + '.log', 'a+'))
+for i in range(N_IDLECHAINDS):
+  command_lines.append([str(18180+i) if x == "idlechaind_rpc_port" else str(18280+i) if x == "idlechaind_p2p_port" else str(18380+i) if x == "idlechaind_zmq_port" else "tcp://127.0.0.1:" + str(18480+i) if x == "idlechaind_zmq_pub" else builddir + "/functional-tests-directory/idlechaind" + str(i) if x == "idlechaind_data_dir" else x for x in idlechaind_base])
+  if i < len(idlechaind_extra):
+    command_lines[-1] += idlechaind_extra[i]
+  outputs.append(open(FUNCTIONAL_TESTS_DIRECTORY + '/idlechaind' + str(i) + '.log', 'a+'))
   ports.append(18180+i)
 
 for i in range(N_WALLETS):

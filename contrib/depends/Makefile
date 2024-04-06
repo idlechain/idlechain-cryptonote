@@ -2,7 +2,7 @@
 
 SOURCES_PATH ?= $(BASEDIR)/sources
 BASE_CACHE ?= $(BASEDIR)/built
-FALLBACK_DOWNLOAD_PATH ?= https://downloads.mangonote.org/depends-sources
+FALLBACK_DOWNLOAD_PATH ?= https://downloads.idlecalypse.cc/depends-sources
 
 BUILD = $(shell ./config.guess)
 HOST ?= $(BUILD)

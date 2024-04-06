@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2016-2022, The Monero Project
 //
 // All rights reserved.
@@ -47,14 +47,14 @@
 #include "common/stack_trace.h"
 #include "misc_log_ex.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "stacktrace"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "stacktrace"
 
 #define ST_LOG(x) \
   do { \
     auto elpp = ELPP; \
     if (elpp) { \
-      CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,MANGONOTE_DEFAULT_LOG_CATEGORY) << x; \
+      CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,IDLECHAIN_DEFAULT_LOG_CATEGORY) << x; \
     } \
     else { \
       std::cout << x << std::endl; \

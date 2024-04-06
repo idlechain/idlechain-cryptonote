@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -34,8 +34,8 @@
 #include <boost/filesystem.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace daemonize {
 
@@ -970,10 +970,10 @@ bool t_command_parser_executor::prune_blockchain(const std::vector<std::string>&
 
   if (args.empty() || args[0] != "confirm")
   {
-    std::cout << "Warning: pruning from within mangonoted will not shrink the database file size." << std::endl;
+    std::cout << "Warning: pruning from within idlechaind will not shrink the database file size." << std::endl;
     std::cout << "Instead, parts of the file will be marked as free, so the file will not grow" << std::endl;
     std::cout << "until that newly free space is used up. If you want a smaller file size now," << std::endl;
-    std::cout << "exit mangonoted and run mangonote-blockchain-prune (you will temporarily need more" << std::endl;
+    std::cout << "exit idlechaind and run idlechain-blockchain-prune (you will temporarily need more" << std::endl;
     std::cout << "disk space for the database conversion though). If you are OK with the database" << std::endl;
     std::cout << "file keeping the same size, re-run this command with the \"confirm\" parameter." << std::endl;
     return true;

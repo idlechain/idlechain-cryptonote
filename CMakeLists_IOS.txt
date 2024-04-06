@@ -1,7 +1,7 @@
-# Portions Copyright (c) 2024, The Mangonote Project
+# Portions Copyright (c) 2024, The IDLEChain Project
 # Portions Copyright (c) 2017-2022, The Monero Project
 # This file is based off of the https://code.google.com/archive/p/ios-cmake/
-# It has been altered for Mangonote iOS development
+# It has been altered for IDLEChain Project iOS development
 #
 #
 # Options:

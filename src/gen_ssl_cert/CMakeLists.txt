@@ -29,7 +29,7 @@
 set(gen_ssl_cert_sources
   gen_ssl_cert.cpp)
 
-mangonote_add_executable(gen_ssl_cert
+idlechain_add_executable(gen_ssl_cert
   ${gen_ssl_cert_sources})
 target_link_libraries(gen_ssl_cert
   PRIVATE
@@ -45,5 +45,5 @@ add_dependencies(gen_ssl_cert
   version)
 set_property(TARGET gen_ssl_cert
   PROPERTY
-    OUTPUT_NAME "mangonote-gen-ssl-cert")
+    OUTPUT_NAME "idlechain-gen-ssl-cert")
 install(TARGETS gen_ssl_cert DESTINATION bin)

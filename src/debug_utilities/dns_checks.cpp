@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 //
 // All rights reserved.
@@ -38,8 +38,8 @@
 #include "common/dns_utils.h"
 #include "version.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "debugtools.dnschecks"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "debugtools.dnschecks"
 
 namespace po = boost::program_options;
 
@@ -122,28 +122,28 @@ int main(int argc, char* argv[])
 
   if (command_line::get_arg(vm, command_line::arg_help))
   {
-    std::cout << "Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")" << ENDL << ENDL;
+    std::cout << "IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")" << ENDL << ENDL;
     std::cout << desc_options << std::endl;
     return 1;
   }
 
   mlog_configure("", true);
-  mlog_set_categories("+" MANGONOTE_DEFAULT_LOG_CATEGORY ":INFO");
+  mlog_set_categories("+" IDLECHAIN_DEFAULT_LOG_CATEGORY ":INFO");
 
-  lookup(LOOKUP_A, {"seeds.mangonoteseeds.se", "seeds.mangonoteseeds.ae.org", "seeds.mangonoteseeds.ch", "seeds.mangonoteseeds.li"});
+  lookup(LOOKUP_A, {"seeds.idlechainseeds.se", "seeds.idlechainseeds.ae.org", "seeds.idlechainseeds.ch", "seeds.idlechainseeds.li"});
 
-  lookup(LOOKUP_TXT, {"updates.mangonote.org", "updates.mangonote.org", "updates.mangonote.co", "updates.mangonote.org", "updates.mangonote.org", "updates.mangonote.org", "updates.mangonote.org", "updates.mangonote.org"});
+  lookup(LOOKUP_TXT, {"updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlechain.co", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc"});
 
-  lookup(LOOKUP_TXT, {"checkpoints.mangonote.org", "checkpoints.mangonote.org", "checkpoints.mangonote.co", "checkpoints.mangonote.org"});
+  lookup(LOOKUP_TXT, {"checkpoints.idlecalypse.cc", "checkpoints.idlecalypse.cc", "checkpoints.idlechain.co", "checkpoints.idlecalypse.cc"});
 
   // those are in the code, but don't seem to actually exist
 #if 0
-  lookup(LOOKUP_TXT, {"testpoints.mangonote.org", "testpoints.mangonote.org", "testpoints.mangonote.co", "testpoints.mangonote.org");
+  lookup(LOOKUP_TXT, {"testpoints.idlecalypse.cc", "testpoints.idlecalypse.cc", "testpoints.idlechain.co", "testpoints.idlecalypse.cc");
 
-  lookup(LOOKUP_TXT, {"stagenetpoints.mangonote.org", "stagenetpoints.mangonote.org", "stagenetpoints.mangonote.co", "stagenetpoints.mangonote.org"});
+  lookup(LOOKUP_TXT, {"stagenetpoints.idlecalypse.cc", "stagenetpoints.idlecalypse.cc", "stagenetpoints.idlechain.co", "stagenetpoints.idlecalypse.cc"});
 #endif
 
-  lookup(LOOKUP_TXT, {"segheights.mangonote.org", "segheights.mangonote.org", "segheights.mangonote.co", "segheights.mangonote.org"});
+  lookup(LOOKUP_TXT, {"segheights.idlecalypse.cc", "segheights.idlecalypse.cc", "segheights.idlechain.co", "segheights.idlecalypse.cc"});
 
   return 0;
   CATCH_ENTRY_L0("main", 1);

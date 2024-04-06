@@ -34,11 +34,11 @@ set(ringct_basic_sources
   bulletproofs.cc
   bulletproofs_plus.cc)
 
-mangonote_find_all_headers(ringct_basic_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(ringct_basic_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(ringct_basic
+idlechain_private_headers(ringct_basic
   ${crypto_private_headers})
-mangonote_add_library(ringct_basic
+idlechain_add_library(ringct_basic
   ${ringct_basic_sources}
   ${ringct_basic_private_headers})
 target_link_libraries(ringct_basic
@@ -59,9 +59,9 @@ set(ringct_private_headers
   rctSigs.h
 )
 
-mangonote_private_headers(ringct
+idlechain_private_headers(ringct
   ${crypto_private_headers})
-mangonote_add_library(ringct
+idlechain_add_library(ringct
   ${ringct_sources}
   ${ringct_headers}
   ${ringct_private_headers})

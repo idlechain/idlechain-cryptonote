@@ -43,7 +43,7 @@ from framework.wallet import Wallet
 class URITest():
     def run_test(self):
       self.create()
-      self.test_mangonote_uri()
+      self.test_idlechain_uri()
 
     def create(self):
         print('Creating wallet')
@@ -56,8 +56,8 @@ class URITest():
         assert res.address == '42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm'
         assert res.seed == seed
 
-    def test_mangonote_uri(self):
-        print('Testing mangonote: URI')
+    def test_idlechain_uri(self):
+        print('Testing idlechain: URI')
         wallet = Wallet()
 
         utf8string = [u'えんしゅう', u'あまやかす']
@@ -82,7 +82,7 @@ class URITest():
             '8AsN91rznfkBGTY8psSNkJBg9SZgxxGGRUhGwRptBhgr5XSQ1XzmA9m8QAnoxydecSh5aLJXdrgXwTDMMZ1AuXsN1EX5Mtm'
         ]:
             res = wallet.make_uri(address = address)
-            assert res.uri == 'mangonote:' + address
+            assert res.uri == 'idlechain:' + address
             res = wallet.parse_uri(res.uri)
             assert res.uri.address == address
             assert res.uri.payment_id == ''
@@ -91,7 +91,7 @@ class URITest():
             assert res.uri.recipient_name == ''
             assert not 'unknown_parameters' in res or len(res.unknown_parameters) == 0
             res = wallet.make_uri(address = address, amount = 11000000000)
-            assert res.uri == 'mangonote:' + address + '?tx_amount=0.011' or res.uri == 'mangonote:' + address + '?tx_amount=0.011000000000'
+            assert res.uri == 'idlechain:' + address + '?tx_amount=0.011' or res.uri == 'idlechain:' + address + '?tx_amount=0.011000000000'
             res = wallet.parse_uri(res.uri)
             assert res.uri.address == address
             assert res.uri.payment_id == ''
@@ -103,7 +103,7 @@ class URITest():
         address = '42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm'
 
         res = wallet.make_uri(address = address, tx_description = utf8string[0])
-        assert res.uri == 'mangonote:' + address + '?tx_description=' + quoted_utf8string[0]
+        assert res.uri == 'idlechain:' + address + '?tx_description=' + quoted_utf8string[0]
         res = wallet.parse_uri(res.uri)
         assert res.uri.address == address
         assert res.uri.payment_id == ''
@@ -113,7 +113,7 @@ class URITest():
         assert not 'unknown_parameters' in res or len(res.unknown_parameters) == 0
 
         res = wallet.make_uri(address = address, recipient_name = utf8string[0])
-        assert res.uri == 'mangonote:' + address + '?recipient_name=' + quoted_utf8string[0]
+        assert res.uri == 'idlechain:' + address + '?recipient_name=' + quoted_utf8string[0]
         res = wallet.parse_uri(res.uri)
         assert res.uri.address == address
         assert res.uri.payment_id == ''
@@ -123,7 +123,7 @@ class URITest():
         assert not 'unknown_parameters' in res or len(res.unknown_parameters) == 0
 
         res = wallet.make_uri(address = address, recipient_name = utf8string[0], tx_description = utf8string[1])
-        assert res.uri == 'mangonote:' + address + '?recipient_name=' + quoted_utf8string[0] + '&tx_description=' + quoted_utf8string[1]
+        assert res.uri == 'idlechain:' + address + '?recipient_name=' + quoted_utf8string[0] + '&tx_description=' + quoted_utf8string[1]
         res = wallet.parse_uri(res.uri)
         assert res.uri.address == address
         assert res.uri.payment_id == ''
@@ -133,7 +133,7 @@ class URITest():
         assert not 'unknown_parameters' in res or len(res.unknown_parameters) == 0
 
         res = wallet.make_uri(address = address, recipient_name = utf8string[0], tx_description = utf8string[1], amount = 1000000000000)
-        assert res.uri == 'mangonote:' + address + '?tx_amount=1.000000000000&recipient_name=' + quoted_utf8string[0] + '&tx_description=' + quoted_utf8string[1]
+        assert res.uri == 'idlechain:' + address + '?tx_amount=1.000000000000&recipient_name=' + quoted_utf8string[0] + '&tx_description=' + quoted_utf8string[1]
         res = wallet.parse_uri(res.uri)
         assert res.uri.address == address
         assert res.uri.payment_id == ''
@@ -150,7 +150,7 @@ class URITest():
 
         # spaces must be encoded as %20
         res = wallet.make_uri(address = address, tx_description = ' ' + utf8string[1] + ' ' + utf8string[0] + ' ', amount = 1000000000000)
-        assert res.uri == 'mangonote:' + address + '?tx_amount=1.000000000000&tx_description=%20' + quoted_utf8string[1] + '%20' + quoted_utf8string[0] + '%20'
+        assert res.uri == 'idlechain:' + address + '?tx_amount=1.000000000000&tx_description=%20' + quoted_utf8string[1] + '%20' + quoted_utf8string[0] + '%20'
         res = wallet.parse_uri(res.uri)
         assert res.uri.address == address
         assert res.uri.payment_id == ''
@@ -160,7 +160,7 @@ class URITest():
         assert not 'unknown_parameters' in res or len(res.unknown_parameters) == 0
 
         # the example from the docs
-        res = wallet.parse_uri('mangonote:46BeWrHpwXmHDpDEUmZBWZfoQpdc6HaERCNmx1pEYL2rAcuwufPN9rXHHtyUA4QVy66qeFQkn6sfK8aHYjA3jk3o1Bv16em?tx_amount=239.39014&tx_description=donation')
+        res = wallet.parse_uri('idlechain:46BeWrHpwXmHDpDEUmZBWZfoQpdc6HaERCNmx1pEYL2rAcuwufPN9rXHHtyUA4QVy66qeFQkn6sfK8aHYjA3jk3o1Bv16em?tx_amount=239.39014&tx_description=donation')
         assert res.uri.address == '46BeWrHpwXmHDpDEUmZBWZfoQpdc6HaERCNmx1pEYL2rAcuwufPN9rXHHtyUA4QVy66qeFQkn6sfK8aHYjA3jk3o1Bv16em'
         assert res.uri.amount == 239390140000000
         assert res.uri.tx_description == 'donation'
@@ -172,34 +172,34 @@ class URITest():
         for uri in [
             '',
             ':',
-            'mangonote',
-            'notmangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
-            'MANGONOTE:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
-            'MANGONOTE::42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
-            'mangonote:',
-            'mangonote:badaddress',
-            'mangonote:tx_amount=10',
-            'mangonote:?tx_amount=10',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=-1',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=1e12',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=+12',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=1+2',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=A',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=0x2',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=222222222222222222222',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDn?tx_amount=10',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=&',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=&foo=bar',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=10&tx_amount=20',
-            'mangonote:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_payment_id=1111111111111111',
-            'mangonote:4BxSHvcgTwu25WooY4BVmgdcKwZu5EksVZSZkDd6ooxSVVqQ4ubxXkhLF6hEqtw96i9cf3cVfLw8UWe95bdDKfRQeYtPwLm1Jiw7AKt2LY?tx_payment_id=' + '1' * 64,
-            'mangonote:9ujeXrjzf7bfeK3KZdCqnYaMwZVFuXemPU8Ubw335rj2FN1CdMiWNyFV3ksEfMFvRp9L9qum5UxkP5rN9aLcPxbH1au4WAB',
-            'mangonote:5K8mwfjumVseCcQEjNbf59Um6R9NfVUNkHTLhhPCmNvgDLVS88YW5tScnm83rw9mfgYtchtDDTW5jEfMhygi27j1QYphX38hg6m4VMtN29',
-            'mangonote:7A1Hr63MfgUa8pkWxueD5xBqhQczkusYiCMYMnJGcGmuQxa7aDBxN1G7iCuLCNB3VPeb2TW7U9FdxB27xKkWKfJ8VhUZthF',
+            'idlechain',
+            'notidlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
+            'IDLECHAIN:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
+            'IDLECHAIN::42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm',
+            'idlechain:',
+            'idlechain:badaddress',
+            'idlechain:tx_amount=10',
+            'idlechain:?tx_amount=10',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=-1',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=1e12',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=+12',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=1+2',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=A',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=0x2',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=222222222222222222222',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDn?tx_amount=10',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=&',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm&tx_amount=10=&foo=bar',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_amount=10&tx_amount=20',
+            'idlechain:42ey1afDFnn4886T7196doS9GPMzexD9gXpsZJDwVjeRVdFCSoHnv7KPbBeGpzJBzHRCAs9UxqeoyFQMYbqSWYTfJJQAWDm?tx_payment_id=1111111111111111',
+            'idlechain:4BxSHvcgTwu25WooY4BVmgdcKwZu5EksVZSZkDd6ooxSVVqQ4ubxXkhLF6hEqtw96i9cf3cVfLw8UWe95bdDKfRQeYtPwLm1Jiw7AKt2LY?tx_payment_id=' + '1' * 64,
+            'idlechain:9ujeXrjzf7bfeK3KZdCqnYaMwZVFuXemPU8Ubw335rj2FN1CdMiWNyFV3ksEfMFvRp9L9qum5UxkP5rN9aLcPxbH1au4WAB',
+            'idlechain:5K8mwfjumVseCcQEjNbf59Um6R9NfVUNkHTLhhPCmNvgDLVS88YW5tScnm83rw9mfgYtchtDDTW5jEfMhygi27j1QYphX38hg6m4VMtN29',
+            'idlechain:7A1Hr63MfgUa8pkWxueD5xBqhQczkusYiCMYMnJGcGmuQxa7aDBxN1G7iCuLCNB3VPeb2TW7U9FdxB27xKkWKfJ8VhUZthF',
         ]:
             ok = False
             try: res = wallet.parse_uri(uri)
@@ -207,19 +207,19 @@ class URITest():
             assert ok, res
 
         # unknown parameters but otherwise valid
-        res = wallet.parse_uri('mangonote:' + address + '?tx_amount=239.39014&foo=bar')
+        res = wallet.parse_uri('idlechain:' + address + '?tx_amount=239.39014&foo=bar')
         assert res.uri.address == address
         assert res.uri.amount == 239390140000000
         assert res.unknown_parameters == ['foo=bar'], res
-        res = wallet.parse_uri('mangonote:' + address + '?tx_amount=239.39014&foo=bar&baz=quux')
+        res = wallet.parse_uri('idlechain:' + address + '?tx_amount=239.39014&foo=bar&baz=quux')
         assert res.uri.address == address
         assert res.uri.amount == 239390140000000
         assert res.unknown_parameters == ['foo=bar', 'baz=quux'], res
-        res = wallet.parse_uri('mangonote:' + address + '?tx_amount=239.39014&%20=%20')
+        res = wallet.parse_uri('idlechain:' + address + '?tx_amount=239.39014&%20=%20')
         assert res.uri.address == address
         assert res.uri.amount == 239390140000000
         assert res.unknown_parameters == ['%20=%20'], res
-        res = wallet.parse_uri('mangonote:' + address + '?tx_amount=239.39014&unknown=' + quoted_utf8string[0])
+        res = wallet.parse_uri('idlechain:' + address + '?tx_amount=239.39014&unknown=' + quoted_utf8string[0])
         assert res.uri.address == address
         assert res.uri.amount == 239390140000000
         assert res.unknown_parameters == [u'unknown=' + quoted_utf8string[0]], res

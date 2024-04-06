@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2018-2022, The Monero Project
 
 //
@@ -164,7 +164,7 @@ TEST(tor_address, valid)
     EXPECT_FALSE(address2.less(*address1));
     EXPECT_FALSE(address1->less(address2));
 
-    address2 = MANGONOTE_UNWRAP(net::tor_address::make(std::string{v2_onion} + ":6545"));
+    address2 = IDLECHAIN_UNWRAP(net::tor_address::make(std::string{v2_onion} + ":6545"));
 
     EXPECT_EQ(6545, address2.port());
     EXPECT_STREQ(v2_onion, address2.host_str());
@@ -181,7 +181,7 @@ TEST(tor_address, valid)
     EXPECT_FALSE(address2.less(*address1));
     EXPECT_TRUE(address1->less(address2));
 
-    net::tor_address address3 = MANGONOTE_UNWRAP(net::tor_address::make(std::string{v3_onion} + ":", 65535));
+    net::tor_address address3 = IDLECHAIN_UNWRAP(net::tor_address::make(std::string{v3_onion} + ":", 65535));
 
     EXPECT_EQ(65535, address3.port());
     EXPECT_STREQ(v3_onion, address3.host_str());
@@ -212,8 +212,8 @@ TEST(tor_address, valid)
 
 TEST(tor_address, generic_network_address)
 {
-    const epee::net_utils::network_address tor1{MANGONOTE_UNWRAP(net::tor_address::make(v3_onion, 8080))};
-    const epee::net_utils::network_address tor2{MANGONOTE_UNWRAP(net::tor_address::make(v3_onion, 8080))};
+    const epee::net_utils::network_address tor1{IDLECHAIN_UNWRAP(net::tor_address::make(v3_onion, 8080))};
+    const epee::net_utils::network_address tor2{IDLECHAIN_UNWRAP(net::tor_address::make(v3_onion, 8080))};
     const epee::net_utils::network_address ip{epee::net_utils::ipv4_network_address{100, 200}};
 
     EXPECT_EQ(tor1, tor2);
@@ -249,7 +249,7 @@ TEST(tor_address, epee_serializev_v2)
 {
     epee::byte_slice buffer{};
     {
-        test_command_tor command{MANGONOTE_UNWRAP(net::tor_address::make(v2_onion, 10))};
+        test_command_tor command{IDLECHAIN_UNWRAP(net::tor_address::make(v2_onion, 10))};
         EXPECT_FALSE(command.tor.is_unknown());
         EXPECT_NE(net::tor_address{}, command.tor);
         EXPECT_STREQ(v2_onion, command.tor.host_str());
@@ -300,7 +300,7 @@ TEST(tor_address, epee_serializev_v3)
 {
     epee::byte_slice buffer{};
     {
-        test_command_tor command{MANGONOTE_UNWRAP(net::tor_address::make(v3_onion, 10))};
+        test_command_tor command{IDLECHAIN_UNWRAP(net::tor_address::make(v3_onion, 10))};
         EXPECT_FALSE(command.tor.is_unknown());
         EXPECT_NE(net::tor_address{}, command.tor);
         EXPECT_STREQ(v3_onion, command.tor.host_str());
@@ -402,7 +402,7 @@ TEST(tor_address, boost_serialize_v2)
 {
     std::string buffer{};
     {
-        const net::tor_address tor = MANGONOTE_UNWRAP(net::tor_address::make(v2_onion, 10));
+        const net::tor_address tor = IDLECHAIN_UNWRAP(net::tor_address::make(v2_onion, 10));
         EXPECT_FALSE(tor.is_unknown());
         EXPECT_NE(net::tor_address{}, tor);
         EXPECT_STREQ(v2_onion, tor.host_str());
@@ -437,7 +437,7 @@ TEST(tor_address, boost_serialize_v3)
 {
     std::string buffer{};
     {
-        const net::tor_address tor = MANGONOTE_UNWRAP(net::tor_address::make(v3_onion, 10));
+        const net::tor_address tor = IDLECHAIN_UNWRAP(net::tor_address::make(v3_onion, 10));
         EXPECT_FALSE(tor.is_unknown());
         EXPECT_NE(net::tor_address{}, tor);
         EXPECT_STREQ(v3_onion, tor.host_str());
@@ -619,7 +619,7 @@ TEST(i2p_address, valid)
     EXPECT_FALSE(address2.less(*address1));
     EXPECT_FALSE(address1->less(address2));
 
-    address2 = MANGONOTE_UNWRAP(net::i2p_address::make(std::string{b32_i2p_2} + ":6545"));
+    address2 = IDLECHAIN_UNWRAP(net::i2p_address::make(std::string{b32_i2p_2} + ":6545"));
 
     EXPECT_EQ(6545, address2.port());
     EXPECT_STREQ(b32_i2p_2, address2.host_str());
@@ -636,7 +636,7 @@ TEST(i2p_address, valid)
     EXPECT_FALSE(address2.less(*address1));
     EXPECT_TRUE(address1->less(address2));
 
-    net::i2p_address address3 = MANGONOTE_UNWRAP(net::i2p_address::make(std::string{b32_i2p} + ":", 65535));
+    net::i2p_address address3 = IDLECHAIN_UNWRAP(net::i2p_address::make(std::string{b32_i2p} + ":", 65535));
 
     EXPECT_EQ(65535, address3.port());
     EXPECT_STREQ(b32_i2p, address3.host_str());
@@ -667,8 +667,8 @@ TEST(i2p_address, valid)
 
 TEST(i2p_address, generic_network_address)
 {
-    const epee::net_utils::network_address i2p1{MANGONOTE_UNWRAP(net::i2p_address::make(b32_i2p, 8080))};
-    const epee::net_utils::network_address i2p2{MANGONOTE_UNWRAP(net::i2p_address::make(b32_i2p, 8080))};
+    const epee::net_utils::network_address i2p1{IDLECHAIN_UNWRAP(net::i2p_address::make(b32_i2p, 8080))};
+    const epee::net_utils::network_address i2p2{IDLECHAIN_UNWRAP(net::i2p_address::make(b32_i2p, 8080))};
     const epee::net_utils::network_address ip{epee::net_utils::ipv4_network_address{100, 200}};
 
     EXPECT_EQ(i2p1, i2p2);
@@ -704,7 +704,7 @@ TEST(i2p_address, epee_serializev_b32)
 {
     epee::byte_slice buffer{};
     {
-        test_command_i2p command{MANGONOTE_UNWRAP(net::i2p_address::make(b32_i2p, 10))};
+        test_command_i2p command{IDLECHAIN_UNWRAP(net::i2p_address::make(b32_i2p, 10))};
         EXPECT_FALSE(command.i2p.is_unknown());
         EXPECT_NE(net::i2p_address{}, command.i2p);
         EXPECT_STREQ(b32_i2p, command.i2p.host_str());
@@ -806,7 +806,7 @@ TEST(i2p_address, boost_serialize_b32)
 {
     std::string buffer{};
     {
-        const net::i2p_address i2p = MANGONOTE_UNWRAP(net::i2p_address::make(b32_i2p, 10));
+        const net::i2p_address i2p = IDLECHAIN_UNWRAP(net::i2p_address::make(b32_i2p, 10));
         EXPECT_FALSE(i2p.is_unknown());
         EXPECT_NE(net::i2p_address{}, i2p);
         EXPECT_STREQ(b32_i2p, i2p.host_str());
@@ -968,7 +968,7 @@ TEST(get_network_address_host_and_port, ipv6)
 TEST(get_network_address_host_and_port, hostname)
 {
     na_host_and_port_test("localhost", "localhost", "xxxxx");
-    na_host_and_port_test("bar:29080", "bar", "29080"); // Issue https://github.com/mangonote-project/mangonote/issues/8633
+    na_host_and_port_test("bar:29080", "bar", "29080"); // Issue https://github.com/idlechain-project/idlechain/issues/8633
     na_host_and_port_test("xmrchain.net:18081", "xmrchain.net", "18081");
 }
 
@@ -1697,7 +1697,7 @@ TEST(zmq, error_codes)
     EXPECT_TRUE(
         []() -> expect<void>
         {
-            MANGONOTE_ZMQ_CHECK(zmq_msg_send(nullptr, nullptr, 0));
+            IDLECHAIN_ZMQ_CHECK(zmq_msg_send(nullptr, nullptr, 0));
             return success();
         }().matches(std::errc::not_a_socket)
     );
@@ -1705,7 +1705,7 @@ TEST(zmq, error_codes)
     bool thrown = false;
     try
     {
-        MANGONOTE_ZMQ_THROW("stuff");
+        IDLECHAIN_ZMQ_THROW("stuff");
     }
     catch (const std::system_error& e)
     {

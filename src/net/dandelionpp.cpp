@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 //
 // All rights reserved.
@@ -108,7 +108,7 @@ namespace dandelionpp
     {
         // max value is used by `select_stem` as error case
         if (stems == std::numeric_limits<std::size_t>::max())
-            MANGONOTE_THROW(common_error::kInvalidArgument, "stems value cannot be max size_t");
+            IDLECHAIN_THROW(common_error::kInvalidArgument, "stems value cannot be max size_t");
 
         usage_count_.resize(stems);
         if (stems < out_mapping_.size())

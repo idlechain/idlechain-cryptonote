@@ -57,4 +57,4 @@ foreach(BLOB_NAME checkpoints testnet_blocks stagenet_blocks)
     )
 endforeach()
 
-mangonote_add_library(blocks blocks.cpp ${GENERATED_SOURCES})
+idlechain_add_library(blocks blocks.cpp ${GENERATED_SOURCES})

@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 //
 // All rights reserved.
@@ -51,8 +51,8 @@
 #include "common/stack_trace.h"
 #endif // STACK_TRACE
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "daemon"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace po = boost::program_options;
 namespace bf = boost::filesystem;
@@ -191,16 +191,16 @@ int main(int argc, char const * argv[])
 
     if (command_line::get_arg(vm, command_line::arg_help))
     {
-      std::cout << "Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")" << ENDL << ENDL;
+      std::cout << "IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")" << ENDL << ENDL;
       std::cout << "Usage: " + std::string{argv[0]} + " [options|settings] [daemon_command...]" << std::endl << std::endl;
       std::cout << visible_options << std::endl;
       return 0;
     }
 
-    // Mangonote Version
+    // IDLEChain Project Version
     if (command_line::get_arg(vm, command_line::arg_version))
     {
-      std::cout << "Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")" << ENDL;
+      std::cout << "IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")" << ENDL;
       return 0;
     }
 
@@ -256,7 +256,7 @@ int main(int argc, char const * argv[])
     }
 
     // data_dir
-    //   default: e.g. ~/.bitmangonote/ or ~/.bitmangonote/testnet
+    //   default: e.g. ~/.bitidlechain/ or ~/.bitidlechain/testnet
     //   if data-dir argument given:
     //     absolute path
     //     relative path: relative to cwd
@@ -307,7 +307,7 @@ int main(int argc, char const * argv[])
       tools::set_max_concurrency(command_line::get_arg(vm, daemon_args::arg_max_concurrency));
 
     // logging is now set up
-    MGINFO("Mangonote '" << MANGONOTE_RELEASE_NAME << "' (v" << MANGONOTE_VERSION_FULL << ")");
+    MGINFO("IDLEChain Project '" << IDLECHAIN_RELEASE_NAME << "' (v" << IDLECHAIN_VERSION_FULL << ")");
 
     // If there are positional options, we're running a daemon command
     {

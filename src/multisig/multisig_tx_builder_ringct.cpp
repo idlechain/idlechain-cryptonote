@@ -53,8 +53,8 @@
 #include <unordered_set>
 #include <vector>
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "multisig"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "multisig"
 
 namespace multisig {
 

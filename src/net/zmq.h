@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2019-2022, The Monero Project
 //
 // All rights reserved.
@@ -38,7 +38,7 @@
 #include "span.h"
 
 //! If the expression is less than 0, return the current ZMQ error code.
-#define MANGONOTE_ZMQ_CHECK(...)                      \
+#define IDLECHAIN_ZMQ_CHECK(...)                      \
     do                                             \
     {                                              \
         if (( __VA_ARGS__ ) < 0)                   \
@@ -46,15 +46,15 @@
     } while (0)
 
 //! Print a message followed by the current ZMQ error message. 
-#define MANGONOTE_LOG_ZMQ_ERROR(...)                                                   \
+#define IDLECHAIN_LOG_ZMQ_ERROR(...)                                                   \
     do                                                                          \
     {                                                                           \
         MERROR( __VA_ARGS__ << ": " << ::net::zmq::get_error_code().message()); \
     } while (0)
 
 //! Throw an exception with a custom `msg`, current ZMQ error code, filename, and line number.
-#define MANGONOTE_ZMQ_THROW(msg)                         \
-    MANGONOTE_THROW( ::net::zmq::get_error_code(), msg )
+#define IDLECHAIN_ZMQ_THROW(msg)                         \
+    IDLECHAIN_THROW( ::net::zmq::get_error_code(), msg )
 
 namespace epee
 {

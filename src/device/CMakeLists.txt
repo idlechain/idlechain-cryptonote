@@ -59,10 +59,10 @@ endif()
 set(device_private_headers)
 
 
-mangonote_private_headers(device
+idlechain_private_headers(device
   ${device_private_headers})
 
-mangonote_add_library(device
+idlechain_add_library(device
   ${device_sources}
   ${device_headers}
   ${device_private_headers})

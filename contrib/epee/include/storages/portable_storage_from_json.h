@@ -31,8 +31,8 @@
 #include "parserse_base_utils.h"
 #include "file_io_utils.h"
 
-#undef MANGONOTE_DEFAULT_LOG_CATEGORY
-#define MANGONOTE_DEFAULT_LOG_CATEGORY "serialization"
+#undef IDLECHAIN_DEFAULT_LOG_CATEGORY
+#define IDLECHAIN_DEFAULT_LOG_CATEGORY "serialization"
 
 #define EPEE_JSON_RECURSION_LIMIT_INTERNAL 100
 

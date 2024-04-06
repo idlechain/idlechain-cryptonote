@@ -1,4 +1,4 @@
-// Copyright (c) 2024, The Mangonote Project
+// Copyright (c) 2024, The IDLEChain Project
 // Portions Copyright (c) 2014-2022, The Monero Project
 // 
 // All rights reserved.
@@ -123,7 +123,7 @@ public:
    * @brief Gets a DNS address from OpenAlias format
    *
    * If the address looks good, but contains one @ symbol, replace that with a .
-   * e.g. donate@mangonote.org becomes donate.mangonote.org
+   * e.g. donate@idlecalypse.cc becomes donate.idlecalypse.cc
    *
    * @param oa_addr  OpenAlias address
    *

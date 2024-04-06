@@ -37,11 +37,11 @@ set(cryptonote_core_sources
 
 set(cryptonote_core_headers)
 
-mangonote_find_all_headers(cryptonote_core_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
+idlechain_find_all_headers(cryptonote_core_private_headers "${CMAKE_CURRENT_SOURCE_DIR}")
 
-mangonote_private_headers(cryptonote_core
+idlechain_private_headers(cryptonote_core
   ${cryptonote_core_private_headers})
-mangonote_add_library(cryptonote_core
+idlechain_add_library(cryptonote_core
   ${cryptonote_core_sources}
   ${cryptonote_core_headers}
   ${cryptonote_core_private_headers})

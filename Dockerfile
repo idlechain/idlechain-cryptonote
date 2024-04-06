@@ -41,26 +41,26 @@ RUN set -ex && \
     rm -rf /var/lib/apt
 COPY --from=builder /src/build/x86_64-linux-gnu/release/bin /usr/local/bin/
 
-# Create mangonote user
-RUN adduser --system --group --disabled-password mangonote && \
-	mkdir -p /wallet /home/mangonote/.bitmangonote && \
-	chown -R mangonote:mangonote /home/mangonote/.bitmangonote && \
-	chown -R mangonote:mangonote /wallet
+# Create idlechain user
+RUN adduser --system --group --disabled-password idlechain && \
+	mkdir -p /wallet /home/idlechain/.bitidlechain && \
+	chown -R idlechain:idlechain /home/idlechain/.bitidlechain && \
+	chown -R idlechain:idlechain /wallet
 
 # Contains the blockchain
-VOLUME /home/mangonote/.bitmangonote
+VOLUME /home/idlechain/.bitidlechain
 
 # Generate your wallet via accessing the container and run:
 # cd /wallet
-# mangonote-wallet-cli
+# idlechain-wallet-cli
 VOLUME /wallet
 
 EXPOSE 18080
 EXPOSE 18081
 
-# switch to user mangonote
-USER mangonote
+# switch to user idlechain
+USER idlechain
 
-ENTRYPOINT ["mangonoted"]
+ENTRYPOINT ["idlechaind"]
 CMD ["--p2p-bind-ip=0.0.0.0", "--p2p-bind-port=18080", "--rpc-bind-ip=0.0.0.0", "--rpc-bind-port=18081", "--non-interactive", "--confirm-external-bind"]
 
