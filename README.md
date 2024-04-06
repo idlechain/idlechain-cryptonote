@@ -17,7 +17,7 @@ chmod 755 *
 ```
 ### Windows
 
-Download and unzip: https://idlecalypse.cc/latest-win64.zip
+Download, unzip and run idlechaind.exe: https://idlecalypse.cc/latest-win64.zip
 
 ## How to compile
 https://github.com/monero-project/monero?tab=readme-ov-file#compiling-monero-from-source
