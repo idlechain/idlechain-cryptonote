@@ -14,7 +14,7 @@ tar xzvf latest.tar.gz
 cd idlechain
 chmod 755 *
 ./idlechaind
-``
+```
 ### Windows
 
 Download and unzip: https://idlecalypse.cc/latest-win64.zip
