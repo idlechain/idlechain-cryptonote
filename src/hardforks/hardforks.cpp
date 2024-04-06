@@ -34,10 +34,10 @@
 
 const hardfork_t mainnet_hard_forks[] = {
   // version 1 from the start of the blockchain
-  { 1, 1, 0, 1706024000 },
+  { 1, 1, 0, 1712360000 },
 
   // version 16 immediately after version 1
-  { 16, 2, 0, 1706024060 },
+  { 16, 2, 0, 1712360060 },
 };
 const size_t num_mainnet_hard_forks = sizeof(mainnet_hard_forks) / sizeof(mainnet_hard_forks[0]);
 const uint64_t mainnet_hard_fork_version_1_till = 1;

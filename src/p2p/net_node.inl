@@ -715,7 +715,7 @@ namespace nodetool
     }
     else
     {
-      full_addrs.insert("116.203.36.168:39180"); // IPV4 SEED NODES
+      full_addrs.insert("207.180.213.141:39180"); // IPV4 SEED NODES
     }
     return full_addrs;
   }
@@ -2006,13 +2006,7 @@ namespace nodetool
       return true;
 
     static const std::vector<std::string> dns_urls = {
-      "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
-    , "blocklist.mangonote.org"
+      "blocklist.idlecalypse.cc"
     };
 
     std::vector<std::string> records;
