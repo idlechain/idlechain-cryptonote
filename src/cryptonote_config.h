@@ -52,9 +52,9 @@
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               15 // 15 minutes in the past
 
 // MONEY_SUPPLY - total number coins to be generated
-#define MONEY_SUPPLY                                    ((uint64_t)(10000000000000000000U)) // 100 million IDEL
+#define MONEY_SUPPLY                                    ((uint64_t)(10000000000000000000U)) // 100 million MNN
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (18)
-#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)150000000000) // 1.5 IDEL
+#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)150000000000) // 1.5 MNN
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    150000 //size of block (bytes) after which reward for block calculated using block size
@@ -158,7 +158,7 @@
 
 #define RPC_IP_FAILS_BEFORE_BLOCK                       3
 
-#define CRYPTONOTE_NAME                         "idlechain"
+#define CRYPTONOTE_NAME                         "idle"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
 #define P2P_NET_DATA_FILENAME                   "p2pstate.bin"
@@ -230,11 +230,11 @@ namespace config
   uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x3635; // XM
   uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x2e47; // aM
   uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x7749; // am
-  uint16_t const P2P_DEFAULT_PORT = 39180;
-  uint16_t const RPC_DEFAULT_PORT = 39181;
-  uint16_t const ZMQ_RPC_DEFAULT_PORT = 39182;
+  uint16_t const P2P_DEFAULT_PORT = 39110;
+  uint16_t const RPC_DEFAULT_PORT = 39111;
+  uint16_t const ZMQ_RPC_DEFAULT_PORT = 39112;
   boost::uuids::uuid const NETWORK_ID = { {
-      0x31 ,0xB3, 0x0C, 0x15, 0x71, 0xAE , 0x1F, 0x41, 0x54, 0x4C, 0x70, 0x1F, 0x34, 0xD0, 0x31, 0x34
+      0x21 ,0xB3, 0x0C, 0x15, 0x71, 0xAE , 0x1F, 0x41, 0x54, 0x4C, 0x70, 0x1F, 0x34, 0xD0, 0x31, 0x34
     } }; // Bender's nightmare
   std::string const GENESIS_TX = "013c01ff0001ffffffffffff03029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121017767aafcde9be00dcfd098715ebcf7f410daebc582fda69d24a28e9d0bc890d1";
   uint32_t const GENESIS_NONCE = 314598;
@@ -257,7 +257,7 @@ namespace config
   const unsigned char HASH_KEY_CLSAG_ROUND[] = "CLSAG_round";
   const unsigned char HASH_KEY_CLSAG_AGG_0[] = "CLSAG_agg_0";
   const unsigned char HASH_KEY_CLSAG_AGG_1[] = "CLSAG_agg_1";
-  const char HASH_KEY_MESSAGE_SIGNING[] = "IdlechainMessageSignature";
+  const char HASH_KEY_MESSAGE_SIGNING[] = "IdleMessageSignature";
   const unsigned char HASH_KEY_MM_SLOT = 'm';
   const constexpr char HASH_KEY_MULTISIG_TX_PRIVKEYS_SEED[] = "multisig_tx_privkeys_seed";
   const constexpr char HASH_KEY_MULTISIG_TX_PRIVKEYS[] = "multisig_tx_privkeys";
