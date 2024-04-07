@@ -130,20 +130,7 @@ int main(int argc, char* argv[])
   mlog_configure("", true);
   mlog_set_categories("+" IDLECHAIN_DEFAULT_LOG_CATEGORY ":INFO");
 
-  lookup(LOOKUP_A, {"seeds.idlechainseeds.se", "seeds.idlechainseeds.ae.org", "seeds.idlechainseeds.ch", "seeds.idlechainseeds.li"});
-
-  lookup(LOOKUP_TXT, {"updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlechain.co", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc", "updates.idlecalypse.cc"});
-
-  lookup(LOOKUP_TXT, {"checkpoints.idlecalypse.cc", "checkpoints.idlecalypse.cc", "checkpoints.idlechain.co", "checkpoints.idlecalypse.cc"});
-
-  // those are in the code, but don't seem to actually exist
-#if 0
-  lookup(LOOKUP_TXT, {"testpoints.idlecalypse.cc", "testpoints.idlecalypse.cc", "testpoints.idlechain.co", "testpoints.idlecalypse.cc");
-
-  lookup(LOOKUP_TXT, {"stagenetpoints.idlecalypse.cc", "stagenetpoints.idlecalypse.cc", "stagenetpoints.idlechain.co", "stagenetpoints.idlecalypse.cc"});
-#endif
-
-  lookup(LOOKUP_TXT, {"segheights.idlecalypse.cc", "segheights.idlecalypse.cc", "segheights.idlechain.co", "segheights.idlecalypse.cc"});
+  lookup(LOOKUP_A, {"idlecalypse.cc", "seed1.idlecalypse.cc", "seed2.idlecalypse.cc"});
 
   return 0;
   CATCH_ENTRY_L0("main", 1);
