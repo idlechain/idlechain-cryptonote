@@ -52,9 +52,9 @@
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               15 // 15 minutes in the past
 
 // MONEY_SUPPLY - total number coins to be generated
-#define MONEY_SUPPLY                                    ((uint64_t)(10000000000000000000U)) // 100 million MNN
+#define MONEY_SUPPLY                                    ((uint64_t)(10000000000000000000U)) // 100 million IDEL
 #define EMISSION_SPEED_FACTOR_PER_MINUTE                (18)
-#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)150000000000) // 1.5 MNN
+#define FINAL_SUBSIDY_PER_MINUTE                        ((uint64_t)150000000000) // 1.5 IDEL
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2    150000 //size of block (bytes) after which reward for block calculated using block size
