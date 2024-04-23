@@ -715,7 +715,7 @@ namespace nodetool
     }
     else
     {
-	full_addrs.insert("104.250.132.219:39110"); // IPV4 SEED NODES
+	full_addrs.insert("207.180.213.141:39110"); // IPV4 SEED NODES
     }
     return full_addrs;
   }
