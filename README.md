@@ -28,9 +28,9 @@ Run and follow the steps:
 Run idlechain-wallet-cli.exe and follow the steps.
 
 ## How to mining
-[Hash3030 Pool](https://pool.hash3030.xyz/pools/idlechain/)
-[Official Pool](https://pool.idlecalypse.cc/)
-[More pools](https://miningpoolstats.stream/idlechain)
+- [Hash3030 Pool](https://pool.hash3030.xyz/pools/idlechain/)
+- [Official Pool](https://pool.idlecalypse.cc/)
+- [More pools](https://miningpoolstats.stream/idlechain)
 
 ## How to compile
 https://github.com/monero-project/monero?tab=readme-ov-file#compiling-monero-from-source
